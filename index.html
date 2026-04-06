@@ -1,1896 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fundable Chicago 2026 · Tools, Tech and Training for Faith-Led and Grassroots Nonprofits · May 14</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --navy: #0A1628;
-  --blue: #0D2D5C;
-  --blue-mid: #1A4B8C;
-  --blue-bright: #2563B0;
-  --blue-light: #4A90D9;
-  --blue-pale: #E8F0FB;
-  --blue-mist: #F0F6FF;
-  --gold: #C9A84C;
-  --gold-light: #E8D5A3;
-  --gold-dark: #8B6B28;
-  --white: #FFFFFF;
-  --off: #F8F9FC;
-  --text: #1A2332;
-  --text-mid: #4A5568;
-  --text-light: #718096;
-  --border: rgba(0,0,0,0.08);
-  --border-blue: rgba(26,75,140,0.15);
-  --border-gold: rgba(201,168,76,0.3);
-  --green: #1A6B3C;
-  --display: 'Bebas Neue', sans-serif;
-  --body: 'Inter', sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundable Chicago 2026 - Spin to Win</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--body);background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-a{text-decoration:none;color:inherit;}
-img{max-width:100%;display:block;}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,22,40,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
-.nav-brand{font-family:var(--display);font-size:22px;letter-spacing:0.08em;color:var(--white);}
-.nav-brand span{color:var(--gold);}
-.nav-links{display:flex;gap:28px;list-style:none;}
-.nav-links a{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.65);transition:color 0.2s;}
-.nav-links a:hover{color:var(--gold);}
-.nav-btn{background:var(--gold);color:var(--navy);font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:10px 24px;border:none;cursor:pointer;transition:background 0.2s;display:inline-block;}
-.nav-btn:hover{background:var(--gold-light);}
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-/* HERO */
-.hero{min-height:100vh;background:linear-gradient(180deg,#0A1628 0%,#0D2D5C 35%,#1A4B8C 65%,#2563B0 85%,#3A7CC8 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 48px 0;position:relative;overflow:hidden;}
-.hero-stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 15% 20%,rgba(255,255,255,0.6) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 60% 15%,rgba(255,255,255,0.7) 0%,transparent 100%),radial-gradient(1px 1px at 80% 25%,rgba(255,255,255,0.5) 0%,transparent 100%),radial-gradient(2px 2px at 25% 12%,rgba(201,168,76,0.8) 0%,transparent 100%);pointer-events:none;}
-.hero-glow{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);width:900px;height:300px;background:radial-gradient(ellipse,rgba(37,99,176,0.4) 0%,transparent 70%);pointer-events:none;}
-.skyline{position:absolute;bottom:0;left:0;right:0;height:220px;pointer-events:none;}
-.hero-top{position:relative;z-index:3;padding-top:80px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:60px;}
-.badge{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(201,168,76,0.5);color:var(--gold);}
-.badge.filled{background:var(--gold);color:var(--navy);border-color:var(--gold);}
-.hero-badges{display:flex;gap:10px;flex-wrap:wrap;}
-.hero-pt{font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.04em;text-align:right;line-height:1.7;}
-.hero-pt strong{color:var(--gold-light);font-weight:600;}
-.hero-sponsors-top{display:flex;align-items:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;}
-.hero-content{position:relative;z-index:3;max-width:800px;}
-.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px;}
-.hero-eyebrow::before{content:'';display:block;width:36px;height:1px;background:var(--gold);}
-h1.hero-title{font-family:var(--display);font-size:clamp(60px,9vw,120px);line-height:0.92;letter-spacing:0.02em;color:var(--white);margin-bottom:28px;}
-h1.hero-title .gold{color:var(--gold);}
-.hero-sub{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,0.75);line-height:1.75;max-width:580px;font-weight:300;margin-bottom:36px;}
-.hero-sub strong{color:var(--white);font-weight:600;}
-.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
-.btn-gold{background:var(--gold);color:var(--navy);font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:15px 32px;border:none;cursor:pointer;transition:background 0.2s;display:inline-block;}
-.btn-gold:hover{background:var(--gold-light);}
-.btn-white{color:rgba(255,255,255,0.8);font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:15px 32px;border:1px solid rgba(255,255,255,0.25);transition:all 0.2s;display:inline-block;}
-.btn-white:hover{border-color:var(--gold);color:var(--gold);}
-.hero-bar{position:relative;z-index:4;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(10,22,40,0.92);border-top:2px solid var(--gold);margin-top:40px;}
-.hb-item{padding:20px 24px;border-right:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:5px;}
-.hb-item:last-child{border-right:none;}
-.hb-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);}
-.hb-value{font-size:13px;color:rgba(255,255,255,0.85);font-weight:400;line-height:1.35;}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-/* PARTNER STRIP */
-.pstrip{background:var(--blue-pale);border-bottom:1px solid var(--border-blue);padding:16px 48px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.pstrip-label{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-light);margin-right:6px;white-space:nowrap;}
-.pstrip-item{font-size:12px;font-weight:500;color:var(--blue-mid);padding:4px 14px;border:1px solid var(--border-blue);background:var(--white);white-space:nowrap;}
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* SECTIONS */
-.section{padding:88px 48px;border-bottom:1px solid var(--border);}
-.section.white{background:var(--white);}
-.section.off{background:var(--off);}
-.section.blue{background:var(--blue);}
-.container{max-width:1140px;margin:0 auto;}
-.s-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
-.s-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--gold);flex-shrink:0;}
-.s-eyebrow.light{color:var(--gold-light);}
-.s-eyebrow.light::before{background:var(--gold);}
-h2.s-title{font-family:var(--display);font-size:clamp(38px,5.5vw,68px);line-height:0.95;letter-spacing:0.03em;color:var(--text);margin-bottom:18px;}
-h2.s-title.white{color:var(--white);}
-h2.s-title .blue{color:var(--blue-mid);}
-h2.s-title .gold{color:var(--gold);}
-.s-body{font-size:16px;color:var(--text-mid);line-height:1.8;max-width:600px;font-weight:300;}
-.s-body.light{color:rgba(255,255,255,0.7);}
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fbbf24;
+        }
 
-/* TRUTH */
-.truth{background:var(--blue);padding:52px 56px;margin-top:52px;position:relative;overflow:hidden;}
-.truth::before{content:'"';font-family:var(--display);font-size:200px;color:rgba(255,255,255,0.04);position:absolute;top:-40px;left:20px;line-height:1;pointer-events:none;}
-.truth-text{font-size:clamp(20px,2.8vw,32px);font-weight:300;color:var(--white);line-height:1.5;max-width:820px;margin-bottom:20px;position:relative;z-index:1;}
-.truth-text strong{color:var(--gold);font-weight:600;}
-.truth-attr{font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;}
+        .nav-btn {
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
 
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);margin-top:52px;}
-.stat{padding:36px 32px;border-right:1px solid var(--border);}
-.stat:last-child{border-right:none;}
-.stat-num{font-family:var(--display);font-size:68px;color:var(--blue-bright);line-height:1;margin-bottom:8px;}
-.stat-text{font-size:14px;color:var(--text-mid);line-height:1.65;font-weight:300;max-width:220px;}
+        .nav-btn:hover {
+            background: #f59e0b;
+            transform: translateY(-2px);
+        }
 
-/* WHO */
-.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:52px;}
-.who-card{background:var(--white);padding:36px;border:1px solid var(--border);transition:border-color 0.2s;}
-.who-card:hover{border-color:var(--blue-light);}
-.who-label{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px;}
-.who-card h3{font-family:var(--display);font-size:26px;letter-spacing:0.04em;color:var(--blue);margin-bottom:10px;}
-.who-card p{font-size:14px;color:var(--text-mid);line-height:1.7;font-weight:300;}
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
 
-/* DAY SPLIT */
-.day-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:52px;}
-.day-col{padding:44px 40px;}
-.day-col.am{background:var(--blue-pale);border:1px solid var(--border-blue);}
-.day-col.pm{background:var(--blue);}
-.dc-time{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.day-col.am .dc-time{color:var(--blue-mid);}
-.day-col.pm .dc-time{color:var(--gold);}
-.dc-time::before{content:'';display:block;width:20px;height:1px;flex-shrink:0;}
-.day-col.am .dc-time::before{background:var(--blue-mid);}
-.day-col.pm .dc-time::before{background:var(--gold);}
-.day-col h3{font-family:var(--display);font-size:32px;letter-spacing:0.04em;line-height:1;margin-bottom:12px;}
-.day-col.am h3{color:var(--blue);}
-.day-col.pm h3{color:var(--white);}
-.day-col p{font-size:14px;line-height:1.7;font-weight:300;margin-bottom:24px;}
-.day-col.am p{color:var(--text-mid);}
-.day-col.pm p{color:rgba(255,255,255,0.65);}
-.day-list{list-style:none;}
-.day-list li{display:flex;gap:12px;font-size:13px;padding:8px 0;border-bottom:1px solid;line-height:1.5;align-items:flex-start;}
-.day-col.am .day-list li{color:var(--text);border-color:var(--border-blue);}
-.day-col.pm .day-list li{color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.08);}
-.day-list li:last-child{border-bottom:none;}
-.day-list li::before{content:'';display:block;width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;background:var(--gold);}
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
 
-/* DAYTIME SCHEDULE */
-.day-sched{margin-top:48px;}
-.ds-phase{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-mid);padding:8px 0;border-bottom:2px solid var(--blue-mid);margin-top:24px;margin-bottom:2px;display:flex;justify-content:space-between;}
-.ds-phase:first-of-type{margin-top:0;}
-.ds-phase span{color:var(--gold);}
-.ds-row{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-blue);align-items:flex-start;}
-.ds-row:last-child{border-bottom:none;}
-.ds-row.appt{background:var(--white);border:1px solid var(--border-blue);border-left:3px solid var(--blue-mid);padding:14px;margin:4px 0;}
-.ds-row.open{background:var(--blue-mist);border:1px solid var(--border-blue);padding:14px;margin:4px 0;}
-.ds-time{font-size:13px;font-weight:700;color:var(--blue);line-height:1.3;padding-top:2px;}
-.ds-row.appt .ds-time{color:var(--blue-mid);}
-.ds-row.open .ds-time{color:var(--blue-bright);}
-.ds-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
-.ds-desc{font-size:12px;color:var(--text-mid);line-height:1.65;font-weight:300;margin-bottom:6px;}
-.ds-tag{font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-dark);border:1px solid var(--border-gold);padding:2px 8px;display:inline-block;margin-right:6px;}
-.ds-tag.b{color:var(--blue-mid);border-color:var(--border-blue);}
+        .hero h1 .gold {
+            color: #fbbf24;
+        }
 
-/* EXPERTS */
-.experts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:52px;}
-.expert-card{background:var(--white);padding:28px 24px;border:1px solid var(--border);transition:all 0.2s;}
-.expert-card:hover{border-color:var(--blue-light);background:var(--blue-pale);}
-.expert-icon{font-size:24px;margin-bottom:14px;display:block;}
-.expert-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px;}
-.expert-desc{font-size:12px;color:var(--text-mid);line-height:1.65;margin-bottom:12px;font-weight:300;}
-.expert-leave{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);}
+        .hero p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
 
-/* MAYOR */
-.mayor-feature{background:var(--navy);padding:56px;margin-top:52px;display:grid;grid-template-columns:1fr 260px;gap:56px;align-items:center;border-left:4px solid var(--gold);}
-.mayor-pill{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border-gold);padding:5px 14px;display:inline-block;margin-bottom:16px;}
-.mayor-name{font-family:var(--display);font-size:48px;letter-spacing:0.03em;line-height:1;color:var(--white);margin-bottom:6px;}
-.mayor-role{font-size:13px;color:var(--gold);margin-bottom:18px;font-weight:500;letter-spacing:0.04em;}
-.mayor-desc{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;font-weight:300;margin-bottom:24px;}
-.mayor-meta{display:flex;flex-direction:column;gap:12px;}
-.m-item{display:flex;flex-direction:column;gap:3px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07);}
-.m-item:last-child{border-bottom:none;padding-bottom:0;}
-.m-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
-.m-value{font-size:13px;color:rgba(255,255,255,0.7);}
-.mayor-img{border:2px solid var(--border-gold);overflow:hidden;}
-.mayor-img img{width:100%;height:300px;object-fit:cover;}
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-/* EVENING PROGRAM */
-.prog-list{margin-top:52px;}
-.prog-phase{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-mid);padding:10px 0 8px;border-bottom:2px solid var(--blue-mid);margin-top:28px;margin-bottom:4px;display:flex;justify-content:space-between;}
-.prog-phase:first-of-type{margin-top:0;}
-.prog-phase span{color:var(--gold);}
-.prog-item{border-radius:4px;padding:20px 22px;margin-bottom:6px;}
-.prog-item.default{background:var(--white);border:1px solid var(--border);}
-.prog-item.learn{background:var(--blue-mist);border:1px solid var(--border-blue);border-left:3px solid var(--blue-bright);}
-.prog-item.cra{background:var(--blue-pale);border:1px solid var(--border-blue);border-left:4px solid var(--blue-mid);}
-.prog-item.do{background:#F0FBF5;border:1px solid rgba(26,107,60,0.15);border-left:4px solid var(--green);}
-.prog-item.connect{background:#FFF8EC;border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);}
-.prog-item.mayor{background:var(--navy);border-left:4px solid var(--gold);}
-.prog-item.prayer{background:var(--blue);border-top:3px solid var(--gold);}
-.prog-item.breakrow{background:var(--off);border:1px dashed rgba(113,128,150,0.3);}
-.prog-item.foundation{background:var(--blue-mist);border:1px solid var(--border-blue);border-left:3px solid var(--blue-bright);}
+        .btn-primary {
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.prog-time{font-size:11px;font-weight:700;letter-spacing:0.08em;margin-bottom:5px;}
-.prog-item.default .prog-time{color:var(--blue-mid);}
-.prog-item.learn .prog-time{color:var(--blue-bright);}
-.prog-item.cra .prog-time{color:var(--blue-mid);}
-.prog-item.do .prog-time{color:var(--green);}
-.prog-item.connect .prog-time{color:var(--gold-dark);}
-.prog-item.mayor .prog-time{color:var(--gold);}
-.prog-item.prayer .prog-time{color:var(--gold);}
-.prog-item.breakrow .prog-time{color:var(--text-light);}
-.prog-item.foundation .prog-time{color:var(--blue-bright);}
+        .btn-primary:hover {
+            background: #f59e0b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
 
-.prog-title{font-size:17px;font-weight:700;margin-bottom:8px;line-height:1.3;}
-.prog-item.default .prog-title{color:var(--text);}
-.prog-item.learn .prog-title{color:var(--blue);}
-.prog-item.cra .prog-title{color:var(--navy);}
-.prog-item.do .prog-title{color:#1A4B38;}
-.prog-item.connect .prog-title{color:var(--gold-dark);}
-.prog-item.mayor .prog-title{color:var(--white);}
-.prog-item.prayer .prog-title{color:var(--white);}
-.prog-item.breakrow .prog-title{color:var(--text-mid);font-weight:500;font-size:15px;}
-.prog-item.foundation .prog-title{color:var(--blue);}
+        .btn-secondary {
+            background: transparent;
+            color: #fbbf24;
+            border: 2px solid #fbbf24;
+            padding: 14px 38px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.prog-desc{font-size:13px;line-height:1.75;font-weight:300;margin-bottom:8px;}
-.prog-item.default .prog-desc{color:var(--text-mid);}
-.prog-item.learn .prog-desc{color:var(--blue-mid);}
-.prog-item.cra .prog-desc{color:var(--blue-mid);}
-.prog-item.do .prog-desc{color:#2D6A4A;}
-.prog-item.connect .prog-desc{color:#8B4A10;}
-.prog-item.mayor .prog-desc{color:rgba(255,255,255,0.65);}
-.prog-item.prayer .prog-desc{color:rgba(255,255,255,0.65);}
-.prog-item.breakrow .prog-desc{color:var(--text-light);font-style:italic;}
-.prog-item.foundation .prog-desc{color:var(--blue-mid);}
+        .btn-secondary:hover {
+            background: #fbbf24;
+            color: #0f172a;
+        }
 
-.prog-tags{display:flex;flex-wrap:wrap;gap:5px;}
-.ptag{font-size:10px;font-weight:600;letter-spacing:0.05em;padding:3px 10px;border-radius:3px;border:1px solid;}
-.ptag.g{color:#1A6B3C;border-color:rgba(26,107,60,0.3);background:rgba(26,107,60,0.05);}
-.ptag.b{color:var(--blue-mid);border-color:var(--border-blue);background:rgba(26,75,140,0.05);}
-.ptag.a{color:var(--gold-dark);border-color:var(--border-gold);background:rgba(201,168,76,0.06);}
-.ptag.m{color:var(--text-light);border-color:var(--border);}
-.ptag.w{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2);}
-.ptag.c{color:var(--navy);border-color:rgba(13,45,92,0.25);background:rgba(13,45,92,0.05);}
+        /* WHEEL SECTION */
+        .wheel-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, rgba(251, 191, 36, 0.05) 0%, transparent 100%);
+        }
 
-/* PASSPORT GAME */
-.game-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:flex-start;margin-top:52px;}
-.passport-card{background:var(--white);border:1px solid var(--border);box-shadow:0 8px 32px rgba(26,75,140,0.1);}
-.passport-bar{background:var(--blue);color:var(--white);padding:18px 24px;border-bottom:3px solid var(--gold);}
-.pb-label{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
-.pb-org{font-size:17px;font-weight:700;}
-.pb-match{font-size:11px;color:rgba(255,255,255,0.6);margin-top:5px;}
-.pt-list{list-style:none;padding:0 24px 16px;}
-.pt-item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text);}
-.pt-item:last-child{border-bottom:none;}
-.pt-box{width:18px;height:18px;border:1.5px solid #CBD5E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
-.pt-box.done{background:var(--green);border-color:var(--green);color:white;}
-.pt-pts{margin-left:auto;font-size:11px;font-weight:700;color:var(--blue-bright);}
-.game-right h3{font-family:var(--display);font-size:38px;letter-spacing:0.03em;color:var(--text);line-height:1;margin-bottom:12px;}
-.game-right p{font-size:14px;color:var(--text-mid);line-height:1.75;font-weight:300;margin-bottom:24px;}
-.prize-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.prize-item{display:flex;gap:14px;align-items:flex-start;background:var(--off);padding:16px;border:1px solid var(--border);}
-.prize-rank{font-family:var(--display);font-size:30px;color:var(--gold);line-height:1;min-width:32px;}
-.prize-body h4{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;}
-.prize-body p{font-size:12px;color:var(--text-mid);line-height:1.5;}
+        .wheel-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
 
-/* CONNECTION CARD */
-.connection-card{background:var(--blue-pale);border:1px solid var(--border-blue);padding:32px;margin-top:52px;}
-.connection-card h3{font-family:var(--display);font-size:28px;letter-spacing:0.03em;color:var(--blue);margin-bottom:8px;}
-.connection-card p{font-size:14px;color:var(--text-mid);line-height:1.75;font-weight:300;margin-bottom:20px;}
-.cc-prompts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.cc-prompt{background:var(--white);border:1px solid var(--border-blue);padding:14px 16px;display:flex;gap:12px;align-items:flex-start;}
-.cc-num{font-size:18px;font-weight:700;color:var(--gold);flex-shrink:0;line-height:1;}
-.cc-text{font-size:13px;color:var(--text-mid);line-height:1.6;font-weight:300;}
-.cc-text strong{color:var(--blue);font-weight:600;}
+        .wheel-content h2 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
 
-/* PEOPLE */
-.alexis-feature{background:var(--blue-pale);border:1px solid var(--border-blue);padding:36px;margin-top:52px;display:grid;grid-template-columns:120px 1fr;gap:28px;align-items:flex-start;}
-.alexis-img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);}
-.alexis-name{font-size:22px;font-weight:700;color:var(--blue);margin-bottom:4px;}
-.alexis-role{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px;}
-.alexis-desc{font-size:14px;color:var(--text-mid);line-height:1.75;font-weight:300;}
-.people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:16px;}
-.person-card{background:var(--white);padding:28px;border:1px solid var(--border);transition:all 0.2s;}
-.person-card:hover{border-color:var(--blue-light);}
-.person-img{width:72px;height:72px;border-radius:50%;object-fit:cover;margin-bottom:14px;border:3px solid var(--blue-pale);}
-.person-name{font-size:15px;font-weight:600;color:var(--text);margin-bottom:3px;}
-.person-role{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:8px;}
-.person-desc{font-size:12px;color:var(--text-mid);line-height:1.65;font-weight:300;}
+        .wheel-content p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
 
-/* SPONSORS */
-.sponsor-split{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:24px;}
-.sponsor-group h4{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-light);margin-bottom:14px;}
-.sponsor-logos{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
-.sponsor-logo{height:40px;width:auto;object-fit:contain;opacity:0.7;transition:opacity 0.2s;}
-.sponsor-logo:hover{opacity:1;}
-.sponsor-text{font-size:14px;font-weight:600;color:var(--blue-mid);}
+        .wheel-visual {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* REGISTER */
-.reg-section{background:var(--blue);padding:88px 48px;}
-.reg-grid{display:grid;grid-template-columns:1fr 460px;gap:72px;align-items:flex-start;margin-top:52px;}
-.why-list{display:flex;flex-direction:column;}
-.why-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
-.why-item:last-child{border-bottom:none;}
-.why-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px;}
-.why-item p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.65;font-weight:300;}
-.coaching-note{background:rgba(255,255,255,0.06);border:1px solid var(--border-gold);padding:22px 26px;margin-top:24px;}
-.coaching-note h4{font-size:14px;font-weight:600;color:var(--gold);margin-bottom:6px;}
-.coaching-note p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;font-weight:300;margin-bottom:14px;}
-.form-box{background:var(--white);padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.25);}
-.form-title{font-family:var(--display);font-size:38px;letter-spacing:0.04em;color:var(--blue);margin-bottom:4px;}
-.form-sub{font-size:13px;color:var(--text-light);margin-bottom:24px;}
-.form-sec{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-mid);margin:18px 0 10px;display:flex;align-items:center;gap:8px;}
-.form-sec::before{content:'';display:block;width:14px;height:1px;background:var(--gold);}
-.fg{margin-bottom:10px;}
-.fl{display:block;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:5px;}
-.fi,.fs,.ft{width:100%;padding:11px 14px;background:var(--off);border:1px solid var(--border);color:var(--text);font-family:var(--body);font-size:14px;transition:border-color 0.2s;appearance:none;}
-.fi:focus,.fs:focus,.ft:focus{outline:none;border-color:var(--blue-bright);background:var(--white);}
-.fi::placeholder,.ft::placeholder{color:#A0AEC0;}
-.ft{resize:vertical;min-height:68px;line-height:1.5;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.form-submit{width:100%;padding:15px;background:var(--blue);color:var(--white);border:none;font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:background 0.2s;}
-.form-submit:hover{background:var(--blue-mid);}
-.form-note{font-size:11px;color:var(--text-light);text-align:center;margin-top:10px;line-height:1.5;}
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
 
-/* CLOSING CTA */
-.cta{text-align:center;padding:96px 48px;background:linear-gradient(180deg,var(--navy) 0%,var(--blue) 100%);border-top:3px solid var(--gold);}
-.cta h2{font-family:var(--display);font-size:clamp(44px,6.5vw,88px);letter-spacing:0.03em;line-height:0.95;color:var(--white);margin-bottom:18px;}
-.cta h2 .gold{color:var(--gold);}
-.cta p{font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:32px;font-weight:300;}
+        .wheel-svg {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 30px;
+        }
 
-/* FOOTER */
-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:60px 48px 36px;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;margin-bottom:48px;}
-.footer-brand{font-family:var(--display);font-size:32px;letter-spacing:0.06em;color:var(--white);margin-bottom:8px;}
-.footer-brand span{color:var(--gold);}
-.footer-tagline{font-size:14px;color:rgba(255,255,255,0.4);line-height:1.7;font-weight:300;max-width:380px;margin-bottom:16px;}
-.footer-col h4{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col a{font-size:14px;color:rgba(255,255,255,0.4);font-weight:300;transition:color 0.2s;}
-.footer-col a:hover{color:var(--off);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.25);font-weight:300;}
+        .spin-button {
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
 
-@media(max-width:900px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;}
-  .section{padding:60px 24px;}
-  .hero{padding:80px 24px 0;}
-  .pstrip{padding:14px 24px;}
-  .day-split,.experts-grid,.who-grid,.game-grid,.mayor-feature,.people-grid,.reg-grid,.sponsor-split,.alexis-feature,.cc-prompts{grid-template-columns:1fr;}
-  .form-row{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;gap:32px;}
-  .hero-bar{grid-template-columns:1fr 1fr;}
-  .stats{grid-template-columns:1fr;}
-  .mayor-img{display:none;}
-  .reg-section{padding:60px 24px;}
-  .cta{padding:64px 24px;}
-  footer{padding:48px 24px 28px;}
-}
+        .spin-button:hover:not(:disabled) {
+            background: #f59e0b;
+            transform: translateY(-3px);
+        }
 
-/* Spin-to-Win Wheel */
-.spin-to-win-container {
-  margin-top: 40px;
-  text-align: center;
-  padding: 20px;
-  display: block;
-  width: 100%;
-  z-index: 5;
-  position: relative;
-}
+        .spin-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 
-.spin-wheel-wrapper {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  margin: 0 auto 20px;
-  display: inline-block;
-}
+        /* REGISTRATION SECTION */
+        .register-section {
+            padding: 80px 0;
+            background: rgba(251, 191, 36, 0.1);
+        }
 
-.spin-wheel {
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  filter: drop-shadow(0 4px 15px rgba(201, 168, 76, 0.4));
-  transition: transform 0.3s ease;
-}
+        .register-content {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-.spin-wheel:hover {
-  transform: scale(1.05);
-}
+        .register-content h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
 
-.spin-wheel.spinning {
-  animation: spin 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+        .register-content p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(1800deg); }
-}
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
 
-.spin-pointer {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 15px solid #C9A84C;
-  z-index: 10;
-}
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
 
-.spin-cta {
-  color: #C9A84C;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 15px 0;
-  animation: pulse 2s infinite;
-}
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
+        .form-group input:focus {
+            outline: none;
+            border-color: #fbbf24;
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-.spin-result {
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 15px;
-  min-height: 30px;
-  padding: 10px;
-  background: rgba(201, 168, 76, 0.1);
-  border-radius: 8px;
-  border: 2px solid #C9A84C;
-}
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
 
-/* Funding Tools Pop-up */
-.funding-popup {
-  max-width: 900px;
-  max-height: 85vh;
-  overflow-y: auto;
-}
+        .form-submit {
+            width: 100%;
+            background: #fbbf24;
+            color: #0f172a;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
 
-.funding-header {
-  text-align: center;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #C9A84C;
-}
+        .form-submit:hover {
+            background: #f59e0b;
+            transform: translateY(-2px);
+        }
 
-.funding-header h2 {
-  font-size: 28px;
-  color: #C9A84C;
-  margin-bottom: 10px;
-}
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 
-.funding-header p {
-  color: #ccc;
-  font-size: 14px;
-}
+        .success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
 
-.funding-tools {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-bottom: 30px;
-}
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
 
-.tool-card {
-  background: rgba(201, 168, 76, 0.05);
-  border: 1px solid #C9A84C;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.tool-card:hover {
-  background: rgba(201, 168, 76, 0.1);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.2);
-}
+        /* FOOTER */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
 
-.tool-icon {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
 
-.tool-card h3 {
-  color: #C9A84C;
-  font-size: 16px;
-  margin-bottom: 8px;
-}
+        .modal.show {
+            display: flex;
+        }
 
-.tool-card p {
-  color: #aaa;
-  font-size: 12px;
-  margin-bottom: 15px;
-}
+        .modal-content {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
 
-.grant-list, .source-list, .resource-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  font-size: 12px;
-}
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-.grant-list li, .source-list li, .resource-list li {
-  color: #ddd;
-  padding: 5px 0;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-}
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-.grant-list li:last-child, .source-list li:last-child, .resource-list li:last-child {
-  border-bottom: none;
-}
+        .modal-close:hover {
+            color: #fff;
+        }
 
-.resource-list a {
-  color: #C9A84C;
-  text-decoration: none;
-  transition: color 0.2s;
-}
+        .modal-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
 
-.resource-list a:hover {
-  color: #E8C547;
-  text-decoration: underline;
-}
+        .modal h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: #fbbf24;
+        }
 
-.search-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #C9A84C;
-  border-radius: 6px;
-  background: rgba(10, 30, 64, 0.5);
-  color: #fff;
-  font-size: 12px;
-}
+        .modal p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
 
-.search-input::placeholder {
-  color: #888;
-}
+        @media (max-width: 768px) {
+            .wheel-container {
+                grid-template-columns: 1fr;
+            }
 
-.funding-footer {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 2px solid #C9A84C;
-}
+            .hero h1 {
+                font-size: 36px;
+            }
 
-.funding-footer p {
-  color: #aaa;
-  font-size: 12px;
-  margin-bottom: 15px;
-}
+            .wheel-content h2 {
+                font-size: 32px;
+            }
 
-</style>
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-brand">FUNDABLE <span>CHICAGO</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#day">The Day</a></li>
-    <li><a href="#program">Program</a></li>
-    <li><a href="#who">Who It's For</a></li>
-    <li><a href="#register">Register</a></li>
-  </ul>
-  <button class="nav-btn" id="nav-register-btn">Get My Free Access Seat</button>
-</nav>
-
-<section class="hero" id="top">
-  <div class="hero-stars"></div>
-  <div class="hero-glow"></div>
-  <svg class="skyline" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="180" width="1440" height="40" fill="rgba(15,40,80,0.6)"/>
-    <rect x="0" y="140" width="60" height="80" fill="#0A1E40"/><rect x="55" y="120" width="40" height="100" fill="#0A1E40"/><rect x="90" y="130" width="55" height="90" fill="#0A1E40"/><rect x="140" y="100" width="30" height="120" fill="#0A1E40"/><rect x="165" y="115" width="45" height="105" fill="#0A1E40"/><rect x="205" y="95" width="35" height="125" fill="#0A1E40"/><rect x="235" y="110" width="50" height="110" fill="#0A1E40"/><rect x="280" y="80" width="40" height="140" fill="#0A1E40"/>
-    <rect x="318" y="30" width="28" height="190" fill="#0D2448"/><rect x="322" y="20" width="8" height="15" fill="#0D2448"/><rect x="334" y="20" width="8" height="15" fill="#0D2448"/><rect x="342" y="55" width="22" height="165" fill="#0D2448"/><rect x="360" y="75" width="18" height="145" fill="#0A1E40"/>
-    <rect x="405" y="50" width="26" height="170" fill="#0D2448"/><rect x="413" y="40" width="5" height="15" fill="#0D2448"/><rect x="421" y="40" width="5" height="15" fill="#0D2448"/><rect x="426" y="70" width="30" height="150" fill="#0A1E40"/><rect x="451" y="85" width="40" height="135" fill="#0A1E40"/>
-    <rect x="486" y="100" width="28" height="120" fill="#0A1E40"/><rect x="510" y="110" width="35" height="110" fill="#0A1E40"/><rect x="540" y="90" width="22" height="130" fill="#0A1E40"/><rect x="558" y="105" width="40" height="115" fill="#0A1E40"/><rect x="594" y="95" width="30" height="125" fill="#0A1E40"/><rect x="620" y="115" width="45" height="105" fill="#0A1E40"/>
-    <rect x="660" y="45" width="32" height="175" fill="#0D2448"/><rect x="687" y="65" width="24" height="155" fill="#0D2448"/><rect x="706" y="80" width="38" height="140" fill="#0A1E40"/><rect x="739" y="100" width="30" height="120" fill="#0A1E40"/><rect x="765" y="90" width="20" height="130" fill="#0A1E40"/>
-    <rect x="780" y="110" width="42" height="110" fill="#0A1E40"/><rect x="818" y="95" width="28" height="125" fill="#0A1E40"/><rect x="842" y="115" width="35" height="105" fill="#0A1E40"/><rect x="873" y="100" width="25" height="120" fill="#0A1E40"/><rect x="894" y="120" width="50" height="100" fill="#0A1E40"/>
-    <rect x="940" y="105" width="30" height="115" fill="#0A1E40"/><rect x="966" y="125" width="40" height="95" fill="#0A1E40"/><rect x="1002" y="115" width="28" height="105" fill="#0A1E40"/><rect x="1025" y="130" width="45" height="90" fill="#0A1E40"/><rect x="1066" y="110" width="32" height="110" fill="#0A1E40"/><rect x="1094" y="125" width="38" height="95" fill="#0A1E40"/><rect x="1128" y="140" width="55" height="80" fill="#0A1E40"/><rect x="1178" y="125" width="30" height="95" fill="#0A1E40"/><rect x="1204" y="140" width="45" height="80" fill="#0A1E40"/><rect x="1245" y="130" width="35" height="90" fill="#0A1E40"/><rect x="1276" y="145" width="50" height="75" fill="#0A1E40"/><rect x="1322" y="135" width="28" height="85" fill="#0A1E40"/><rect x="1346" y="148" width="40" height="72" fill="#0A1E40"/><rect x="1382" y="140" width="58" height="80" fill="#0A1E40"/>
-    <rect x="323" y="40" width="3" height="3" fill="rgba(201,168,76,0.5)"/><rect x="330" y="55" width="3" height="3" fill="rgba(255,255,255,0.3)"/><rect x="408" y="60" width="3" height="3" fill="rgba(255,255,255,0.3)"/><rect x="665" y="65" width="3" height="3" fill="rgba(255,255,255,0.3)"/><rect x="690" y="75" width="3" height="3" fill="rgba(201,168,76,0.4)"/>
-    <rect x="0" y="210" width="1440" height="10" fill="#08142A"/>
-  </svg>
-  <div class="hero-top">
-    <div class="hero-sponsors-top">
-      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663420740336/JjRvEB3btFcVyUuif8DTKH/SS7PpSZA1582_ee275245.png" alt="US Bank" style="height: 50px; width: auto;">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663420740336/RgTxNfqzjlzvgpud.png" alt="K-Nation Group" style="height: 50px; width: auto;">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663420740336/LvsueSNDxPOocyyI.JPG" alt="Mayor's Office of Faith Engagement" style="height: 50px; width: auto;">
-    </div>
-    <div class="hero-badges">
-      <span class="badge filled">Tools · Tech · Training · Free Access</span>
-      <span class="badge">May 14, 2026</span>
-      <span class="badge">Kennedy-King College</span>
-    </div>
-    <div class="hero-pt">
-      <strong>K-Nation Group</strong> in partnership with the<br>
-      <strong>Mayor's Office of Faith Engagement</strong> · led by <strong>Dr. Alexis</strong>
-    </div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Chicago, Illinois · May 14, 2026</div>
-    <h1 class="hero-title">CHICAGO.<br>THERE IS <span class="gold">MONEY</span><br>FOR YOUR<br><span class="gold">ORGANIZATION.</span><br>LET US SHOW YOU<br>HOW TO <span class="gold">GET IT.</span></h1>
-    <p class="hero-sub">Mayor Brandon Johnson has a heart for organizations that are boots on the ground and he has specifically requested that the resources reach those who are doing the work. Fundable Chicago is the answer to that request. Free Access tools, tech, and training for Chicago's faith-led and grassroots nonprofits. You do not just attend. You leave with something real.</p>
-    <div class="hero-actions">
-      <button class="btn-gold" id="hero-register-btn">Get My Seat in the Room</button>
-      <a href="#day" class="btn-white">See the Full Day</a>
-    </div>
-  </div>
-  <div class="hero-bar">
-    <div class="hb-item"><span class="hb-label">Date</span><span class="hb-value">Wednesday, May 14, 2026</span></div>
-    <div class="hb-item"><span class="hb-label">Morning Lab</span><span class="hb-value">9:00 AM to 4:00 PM</span></div>
-    <div class="hb-item"><span class="hb-label">Evening Program</span><span class="hb-value">4:00 PM to 8:35 PM</span></div>
-    <div class="hb-item"><span class="hb-label">Location</span><span class="hb-value">Kennedy-King College, Chicago</span></div>
-    <div class="hb-item"><span class="hb-label">Cost</span><span class="hb-value">Tools · Tech · Training · Free Access</span></div>
-  </div>
-</section>
-
-<!-- Spin-to-Win Wheel Section -->
-<section style="background: linear-gradient(135deg, #0A1E40 0%, #1a3a5c 100%); padding: 60px 20px; text-align: center;">
-  <div style="max-width: 600px; margin: 0 auto;">
-    <h2 style="color: #C9A84C; font-size: 28px; margin-bottom: 10px; font-weight: 700;">SPIN TO WIN</h2>
-    <p style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 40px;">Blessings Await!</p>
-    <!-- ANIMATED SPIN WHEEL -->
-  <div style="position: relative; width: 320px; height: 380px; margin: 0 auto;">
-    <div style="position: relative; width: 300px; height: 300px; margin: 0 auto; perspective: 1000px;">
-      <svg id="wheel" viewBox="0 0 300 300" style="width: 100%; height: 100%; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3)); transform-origin: center;">
-        <!-- Segment 1: Micro Grant (Purple) -->
-        <path d="M 150 150 L 150 10 A 140 140 0 0 1 248.5 51.5 Z" fill="#9333EA" stroke="#C9A84C" stroke-width="2"/>
-        <text x="190" y="60" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Micro</text>
-        <text x="190" y="75" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Grant</text>
-        
-        <!-- Segment 2: AI Tools (Blue) -->
-        <path d="M 150 150 L 248.5 51.5 A 140 140 0 0 1 290 150 Z" fill="#2563B0" stroke="#C9A84C" stroke-width="2"/>
-        <text x="265" y="110" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">AI</text>
-        <text x="265" y="125" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Tools</text>
-        
-        <!-- Segment 3: Coaching (Teal) -->
-        <path d="M 150 150 L 290 150 A 140 140 0 0 1 248.5 248.5 Z" fill="#0891B2" stroke="#C9A84C" stroke-width="2"/>
-        <text x="265" y="200" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Free</text>
-        <text x="265" y="215" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Coach</text>
-        
-        <!-- Segment 4: Funding List (Green) -->
-        <path d="M 150 150 L 248.5 248.5 A 140 140 0 0 1 150 290 Z" fill="#059669" stroke="#C9A84C" stroke-width="2"/>
-        <text x="190" y="260" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Funding</text>
-        <text x="190" y="275" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">List</text>
-        
-        <!-- Segment 5: VIP Access (Orange) -->
-        <path d="M 150 150 L 150 290 A 140 140 0 0 1 51.5 248.5 Z" fill="#EA580C" stroke="#C9A84C" stroke-width="2"/>
-        <text x="90" y="260" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">VIP</text>
-        <text x="90" y="275" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Access</text>
-        
-        <!-- Segment 6: Spin Again (Red) -->
-        <path d="M 150 150 L 51.5 248.5 A 140 140 0 0 1 10 150 Z" fill="#DC2626" stroke="#C9A84C" stroke-width="2"/>
-        <text x="40" y="200" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Spin</text>
-        <text x="40" y="215" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Again</text>
-        
-        <!-- Segment 7: Bonus (Pink) -->
-        <path d="M 150 150 L 10 150 A 140 140 0 0 1 51.5 51.5 Z" fill="#DB2777" stroke="#C9A84C" stroke-width="2"/>
-        <text x="40" y="110" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Bonus</text>
-        <text x="40" y="125" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Points</text>
-        
-        <!-- Segment 8: Extra Entry (Indigo) -->
-        <path d="M 150 150 L 51.5 51.5 A 140 140 0 0 1 150 10 Z" fill="#4F46E5" stroke="#C9A84C" stroke-width="2"/>
-        <text x="90" y="60" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Extra</text>
-        <text x="90" y="75" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Entry</text>
-        
-        <!-- Center circle -->
-        <circle cx="150" cy="150" r="30" fill="#C9A84C" stroke="#0A1E40" stroke-width="3"/>
-        <text x="150" y="155" font-size="18" font-weight="bold" fill="#0A1E40" text-anchor="middle">SPIN</text>
-      </svg>
-      
-      <!-- Pointer -->
-      <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 20px solid #C9A84C; z-index: 10;"></div>
-    </div>
-    
-    <!-- Spin Button -->
-    <button id="spin-btn" style="position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #C9A84C 0%, #E8D5A3 100%); color: #0A1E40; border: none; padding: 16px 32px; font-size: 16px; font-weight: 700; border-radius: 8px; cursor: pointer; box-shadow: 0 8px 20px rgba(201, 168, 76, 0.3); transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">🎡 SPIN NOW</button>
-  </div>
-  
-  <!-- Result Display -->
-  <div id="spin-result" style="color: #C9A84C; font-size: 24px; font-weight: 700; min-height: 40px; margin-top: 100px; text-transform: uppercase; letter-spacing: 1px; text-align: center;"></div>
-    <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 20px;">Register to claim your blessing!</p>
-  </div>
-</section>
-
-
-<div class="pstrip">
-  <span class="pstrip-label">Presented in Partnership With</span>
-  <span class="pstrip-item">Mayor's Office of Faith Engagement</span>
-  <span class="pstrip-item">K-Nation Group</span>
-  <span class="pstrip-label" style="margin-left:16px;">Sponsored By</span>
-  <span class="pstrip-item">U.S. Bank</span>
-  
-  <span class="pstrip-label" style="margin-left:16px;">Featured Speaker</span>
-  <span class="pstrip-item">Mayor Brandon Johnson</span>
-  <span class="pstrip-item">Pastor Billy Evans</span>
-  
-</div>
-
-
-
-
-<div style="background:var(--navy);border-bottom:2px solid var(--gold);padding:24px 48px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
-  <div style="width:4px;height:48px;background:var(--gold);flex-shrink:0;"></div>
-  <div>
-    <div style="font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;">A Message from the Mayor</div>
-    <p style="font-size:15px;color:rgba(255,255,255,0.9);line-height:1.65;font-weight:300;max-width:900px;">Mayor Brandon Johnson fully supports this work and has specifically requested that the tools, funding, and resources reach the faith-led and grassroots organizations doing the work on the ground across Chicago. <strong style="color:white;font-weight:600;">Fundable Chicago is the answer to that request.</strong></p>
-  </div>
-</div>
-
-<section class="section white" id="about">
-  <div class="container">
-    <div class="s-eyebrow">Why This Exists</div>
-    <h2 class="s-title">THE MAYOR ASKED US<br>TO GET THESE RESOURCES<br>TO <span class="blue">YOU.</span></h2>
-    <p class="s-body">Mayor Brandon Johnson has a heart for the organizations that are boots on the ground the faith leaders, the grassroots organizers, the community builders showing up every day without the resources they deserve. He fully supports this work and has specifically requested that the tools, funding, and resources reach those doing the hardest work in Chicago's neighborhoods. Fundable Chicago exists because of that request. A full day of tools, tech, and training so every organization leaves knowing exactly where the money is and how to get it.</p>
-    <div class="truth">
-      <p class="truth-text">"The organizations closest to the community deserve the best tools, the best technology, and the best training. <strong>Tonight they get all three.</strong> You do not just attend Fundable Chicago. You leave with something real."</p>
-      <p class="truth-attr">Dr. Alexis Maston McClinton · Founder · Fundable Chicago</p>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="stat-num">$1B+</div><p class="stat-text">in city, state and federal funds available to Chicago faith-led and grassroots organizations right now</p></div>
-      <div class="stat"><div class="stat-num">73%</div><p class="stat-text">of community and faith-led organizations have never applied for a city or state grant</p></div>
-      <div class="stat"><div class="stat-num">1 DAY</div><p class="stat-text">to get the information, relationships, tools, and access to change that for good</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section off" id="who">
-  <div class="container">
-    <div class="s-eyebrow">Who This Is For</div>
-    <h2 class="s-title">THIS ROOM WAS<br>BUILT FOR <span class="blue">YOU.</span></h2>
-    <p class="s-body">Fundable Chicago is intentionally multicultural. Black, Latino, Asian, Arab, and immigrant-led organizations are not just welcome they are the reason this event exists.</p>
-    <div class="who-grid">
-      <div class="who-card"><div class="who-label">Primary Audience</div><h3>Faith-Led Organizations</h3><p>Churches, mosques, temples, and congregations with community programs. At any stage. You do not need a 501c3 to attend. Come as you are.</p></div>
-      <div class="who-card"><div class="who-label">Primary Audience</div><h3>Grassroots Organizations</h3><p>Community groups doing extraordinary work without the structure yet. Bring your mission and your questions. The morning lab was built for you.</p></div>
-      <div class="who-card"><div class="who-label">Welcome</div><h3>Nonprofits</h3><p>Community-serving organizations ready to grow their funding base and build real funder relationships. The access you have been looking for is in this room.</p></div>
-      <div class="who-card"><div class="who-label">Welcome</div><h3>South and West Side Leaders</h3><p>Organizations serving Chicago's most underresourced neighborhoods. The information that has always been kept in certain rooms is now in yours.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section white" id="day">
-  <div class="container">
-    <div class="s-eyebrow">The Full Day · May 14</div>
-    <h2 class="s-title">THE MORNING<br>DOES THE <span class="blue">WORK.</span><br>THE EVENING<br>OPENS THE <span class="gold">DOORS.</span></h2>
-    <p class="s-body">Two rooms from 9am. Eight expert consultants donating their time. Then an evening of learning, doing, and connecting that starts with funders and ends in prayer.</p>
-    <div class="day-split">
-      <div class="day-col am">
-        <div class="dc-time">9:00 AM to 4:00 PM</div>
-        <h3>THE MORNING LAB</h3>
-        <p>Book your free 30-minute expert coaching session when you register. Show up, do the work, leave more fundable than when you arrived. Laptops ready. Coaches on site. Your personalized AI funding list waiting at check-in.</p>
-        <ul class="day-list">
-          <li>Free Access one-on-one expert coaching by appointment only</li>
-          <li>Open working lab with laptops and portals ready all day</li>
-          <li>GATA registration completed on site with a coach</li>
-          <li>Grant applications started with real-time support</li>
-          <li>Mission, vision, and org documents reviewed</li>
-          <li>Website and digital presence audit</li>
-          <li>Grants and AI session with hands-on setup</li>
-          <li>Your personalized AI funding resource list at check-in</li>
-        </ul>
-      </div>
-      <div class="day-col pm">
-        <div class="dc-time">4:00 PM to 9:00 PM</div>
-        <h3>THE EVENING PROGRAM</h3>
-        <p>This is a doing conference. Every session is followed by application. CRA funding taught in plain language. A live AI demo for nonprofits is featured. Three structured networking moments. Mayor Brandon Johnson at 7:00 PM. You do not leave with notes you leave with work done.</p>
-        <ul class="day-list">
-          <li>City and state funding what exists and how to apply</li>
-          <li>CRA and corporate funding panel extended session</li>
-          <li>Use AI to Apply Session 1 open your phone or laptop</li>
-          <li>Mayor Brandon Johnson at 7:00 PM sharp</li>
-          <li>Foundation funding what Chicago foundations are looking for</li>
-          <li>Use AI to Apply Session 2 foundation grants</li>
-          <li>Closing remarks and closing prayer by Louis Wimbley</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="day-sched">
-      <div style="margin-top:48px;margin-bottom:16px;">
-        <div class="s-eyebrow">Morning Lab · Full Schedule</div>
-        <p style="font-size:14px;color:var(--text-mid);line-height:1.75;font-weight:300;max-width:600px;margin-top:8px;">All expert coaching sessions are by appointment only. Register online and receive a Calendly link to book your 30-minute slot and choose your expert. Walk-in coaching is available in the open lab throughout the day with no appointment needed.</p>
-      </div>
-      <div class="ds-phase">Registration and Check-In <span>9:00 AM</span></div>
-      <div class="ds-row">
-        <div class="ds-time">9:00 AM</div>
-        <div>
-          <div class="ds-title">Check-In · Your AI Funding List · Fundable Passport</div>
-          <div class="ds-desc">Arrive and receive your personalized AI funding resource list generated from your registration and printed and ready when you walk in. Complete your intake form including your question for Mayor Johnson. Receive your Fundable Passport and Connection Card.</div>
-          <span class="ds-tag">AI Funding List at Check-In</span>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">FUNDABLE CHICAGO</div>
+                <button class="nav-btn" onclick="document.getElementById('registerSection').scrollIntoView({behavior: 'smooth'})">Register Now</button>
+            </div>
         </div>
-      </div>
-      <div class="ds-phase">Expert Free Access Coaching · By Appointment Only <span>10:00 AM to 3:30 PM</span></div>
-      <div class="ds-row appt">
-        <div class="ds-time">10:00 AM to 3:30 PM</div>
-        <div>
-          <div class="ds-title">One-on-One Expert Free Access Coaching · 30 Minutes Per Session</div>
-          <div class="ds-desc">Sessions run every 30 minutes throughout the morning and afternoon. Each organization sits privately with their chosen expert for focused, personalized guidance. Choose from Funding Coach, Legal Clinic, Financial Readiness, Website Review, Grants and AI, Grant Writing Clinic, Nonprofit Consultant, or Partnership and MOU Guidance.</div>
-          <span class="ds-tag">By Appointment Only</span>
-          <span class="ds-tag b">Book When You Register</span>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>Chicago.<br>There is <span class="gold">MONEY</span><br>for your organization.</h1>
+            <p>Free access to funding, expert coaching, and direct connections with Chicago's funders. May 14, 2026 at Kennedy-King College.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary" onclick="document.getElementById('wheelSection').scrollIntoView({behavior: 'smooth'})">Spin to Win</button>
+                <button class="btn-secondary" onclick="document.getElementById('registerSection').scrollIntoView({behavior: 'smooth'})">Get Free Access</button>
+            </div>
         </div>
-      </div>
-      <div class="ds-phase">Open Working Lab · Walk-In Welcome <span>10:00 AM to 4:00 PM</span></div>
-      <div class="ds-row open">
-        <div class="ds-time">All Day</div>
-        <div>
-          <div class="ds-title">Open Lab · Laptops Ready · Coach Always Present · No Appointment Needed</div>
-          <div class="ds-desc">Walk in any time. Laptops are preloaded with grant portals, GATA registration, and one-pager templates. A coach is always in this room to answer questions, help you work, and stamp your Fundable Passport.</div>
-          <span class="ds-tag b">Walk-In Welcome</span>
-          <span class="ds-tag">No Appointment Needed</span>
+    </section>
+
+    <!-- WHEEL SECTION -->
+    <section class="wheel-section" id="wheelSection">
+        <div class="container">
+            <div class="wheel-container">
+                <div class="wheel-content">
+                    <h2>Spin to Win</h2>
+                    <p>You could win: VIP event access, free coaching, AI tools, funding lists, and more. Every spin counts!</p>
+                    <p style="font-size: 14px; color: rgba(255, 255, 255, 0.6);">Limited spins available. One per person.</p>
+                </div>
+                <div class="wheel-visual">
+                    <svg class="wheel-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Pointer -->
+                        <polygon points="150,20 160,50 140,50" fill="#fbbf24"/>
+                        
+                        <!-- Wheel segments -->
+                        <g id="wheel" style="transform-origin: 150px 150px;">
+                            <!-- Segment 1 -->
+                            <path d="M 150 150 L 150 50 A 100 100 0 0 1 220.7 79.3 Z" fill="#8b5cf6"/>
+                            <text x="170" y="90" font-size="12" fill="white" text-anchor="middle">VIP Access</text>
+                            
+                            <!-- Segment 2 -->
+                            <path d="M 150 150 L 220.7 79.3 A 100 100 0 0 1 270.7 150 Z" fill="#06b6d4"/>
+                            <text x="235" y="110" font-size="12" fill="white" text-anchor="middle">Free Coach</text>
+                            
+                            <!-- Segment 3 -->
+                            <path d="M 150 150 L 270.7 150 A 100 100 0 0 1 220.7 220.7 Z" fill="#10b981"/>
+                            <text x="235" y="190" font-size="12" fill="white" text-anchor="middle">Funding List</text>
+                            
+                            <!-- Segment 4 -->
+                            <path d="M 150 150 L 220.7 220.7 A 100 100 0 0 1 150 250 Z" fill="#f59e0b"/>
+                            <text x="170" y="225" font-size="12" fill="white" text-anchor="middle">AI Tools</text>
+                            
+                            <!-- Segment 5 -->
+                            <path d="M 150 150 L 150 250 A 100 100 0 0 1 79.3 220.7 Z" fill="#ec4899"/>
+                            <text x="100" y="225" font-size="12" fill="white" text-anchor="middle">Bonus</text>
+                            
+                            <!-- Segment 6 -->
+                            <path d="M 150 150 L 79.3 220.7 A 100 100 0 0 1 29.3 150 Z" fill="#ef4444"/>
+                            <text x="50" y="190" font-size="12" fill="white" text-anchor="middle">Spin Again</text>
+                            
+                            <!-- Segment 7 -->
+                            <path d="M 150 150 L 29.3 150 A 100 100 0 0 1 79.3 79.3 Z" fill="#3b82f6"/>
+                            <text x="50" y="110" font-size="12" fill="white" text-anchor="middle">Micro Grant</text>
+                            
+                            <!-- Segment 8 -->
+                            <path d="M 150 150 L 79.3 79.3 A 100 100 0 0 1 150 50 Z" fill="#6366f1"/>
+                            <text x="100" y="80" font-size="12" fill="white" text-anchor="middle">Extra Entry</text>
+                            
+                            <!-- Center circle -->
+                            <circle cx="150" cy="150" r="30" fill="#fbbf24"/>
+                            <text x="150" y="155" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">SPIN</text>
+                        </g>
+                    </svg>
+                    <button class="spin-button" id="spinBtn" onclick="spinWheel()">🎡 SPIN NOW</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section white">
-  <div class="container">
-    <div class="s-eyebrow">This Is a Doing Conference</div>
-    <h2 class="s-title">YOU DO NOT JUST<br>ATTEND. YOU LEAVE<br>WITH <span class="blue">SOMETHING REAL.</span></h2>
-    <p class="s-body">Every session at Fundable Chicago is followed immediately by application. CRA funding taught in plain language. A live AI demo built for nonprofits is featured. You walk out with tools running on your device, grants found, and work already started. Adults retain what they do tonight you do everything.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px;">
-      <div style="background:var(--blue-pale);border:1px solid var(--border-blue);padding:28px 24px;">
-        <div style="font-size:28px;margin-bottom:12px;">📋</div>
-        <div style="font-size:15px;font-weight:600;color:var(--blue);margin-bottom:8px;">GATA Registration Done</div>
-        <div style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">Complete your Illinois GATA registration on site with a coach. The requirement for most state funding that most organizations have never completed. You leave registered.</div>
-      </div>
-      <div style="background:var(--blue-pale);border:1px solid var(--border-blue);padding:28px 24px;">
-        <div style="font-size:28px;margin-bottom:12px;">🤖</div>
-        <div style="font-size:15px;font-weight:600;color:var(--blue);margin-bottom:8px;">AI Tools Running on Your Device</div>
-        <div style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">Walk out with AI tools set up and running on your phone or laptop tools that find grants, help write proposals, and save your organization hours every single week.</div>
-      </div>
-      <div style="background:var(--blue-pale);border:1px solid var(--border-blue);padding:28px 24px;">
-        <div style="font-size:28px;margin-bottom:12px;">💰</div>
-        <div style="font-size:15px;font-weight:600;color:var(--blue);margin-bottom:8px;">Grants Found and Started</div>
-        <div style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">Leave with at least two foundation grants identified and saved, a city or state application started, and a CRA conversation initiated with a real officer in the room tonight.</div>
-      </div>
-      <div style="background:var(--blue-pale);border:1px solid var(--border-blue);padding:28px 24px;">
-        <div style="font-size:28px;margin-bottom:12px;">🤝</div>
-        <div style="font-size:15px;font-weight:600;color:var(--blue);margin-bottom:8px;">Real Connections Made</div>
-        <div style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">Three structured networking moments and a Connection Card with five specific prompts so you leave with real relationships and real reasons to follow up not just names you cannot remember.</div>
-      </div>
-      <div style="background:var(--blue-pale);border:1px solid var(--border-blue);padding:28px 24px;">
-        <div style="font-size:28px;margin-bottom:12px;">📁</div>
-        <div style="font-size:15px;font-weight:600;color:var(--blue);margin-bottom:8px;">A Readiness Toolkit</div>
-        <div style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">Every attendee receives a Fundable Chicago readiness toolkit before they leave templates, portal links, and step-by-step guides for everything that comes next after tonight.</div>
-      </div>
-      <div style="background:var(--blue-pale);border:1px solid var(--border-blue);padding:28px 24px;">
-        <div style="font-size:28px;margin-bottom:12px;">📧</div>
-        <div style="font-size:15px;font-weight:600;color:var(--blue);margin-bottom:8px;">Your Personalized Funding List</div>
-        <div style="font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;">Generated from your registration and emailed before midnight with clickable links to every relevant funding portal and three specific next action steps just for your organization.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section off">
-  <div class="container">
-    <div class="s-eyebrow">Eight Expert Consultants · Morning Lab Only</div>
-    <h2 class="s-title">EIGHT EXPERTS.<br>ONE BUILDING. <span class="gold">ALL FREE.</span></h2>
-    <p class="s-body">Eight nonprofit consultants are donating their time for the morning lab. Book your free 30-minute session when you register. Leave with a clear plan and real next steps.</p>
-    <div class="experts-grid">
-      <div class="expert-card"><span class="expert-icon">💰</span><div class="expert-name">Funding Coach</div><p class="expert-desc">Reviews your readiness and maps your top three funding opportunities with a step-by-step path to apply.</p><div class="expert-leave">Leave with: A funding action plan</div></div>
-      <div class="expert-card"><span class="expert-icon">⚖️</span><div class="expert-name">Legal Clinic</div><p class="expert-desc">501c3 applications, fiscal sponsorship, and compliance questions answered by a licensed attorney.</p><div class="expert-leave">Leave with: A legal roadmap</div></div>
-      <div class="expert-card"><span class="expert-icon">📊</span><div class="expert-name">Financial Readiness</div><p class="expert-desc">What funders see in your financials and exactly what needs to change before your next application.</p><div class="expert-leave">Leave with: A financial checklist</div></div>
-      <div class="expert-card"><span class="expert-icon">💻</span><div class="expert-name">Website Review</div><p class="expert-desc">What funders see when they visit your site and what to fix before you apply anywhere.</p><div class="expert-leave">Leave with: An action list</div></div>
-      <div class="expert-card"><span class="expert-icon">🤖</span><div class="expert-name">Grants and AI</div><p class="expert-desc">How to use AI tools right now to find grants, write stronger proposals, and navigate funding portals faster.</p><div class="expert-leave">Leave with: AI tools running</div></div>
-      <div class="expert-card"><span class="expert-icon">📋</span><div class="expert-name">Grant Writing Clinic</div><p class="expert-desc">Bring a draft or start from scratch. Proposal review with honest funder-perspective feedback.</p><div class="expert-leave">Leave with: A stronger draft</div></div>
-      <div class="expert-card"><span class="expert-icon">🎯</span><div class="expert-name">Nonprofit Consultant</div><p class="expert-desc">For organizations that keep hitting walls. This session finds out why and gives a clear recommendation.</p><div class="expert-leave">Leave with: A strategic plan</div></div>
-      <div class="expert-card"><span class="expert-icon">🤝</span><div class="expert-name">Partnership and MOU</div><p class="expert-desc">How to structure partnerships with hospitals, workforce agencies, and city departments. Draft MOU language on the spot.</p><div class="expert-leave">Leave with: An MOU draft</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section white" id="mayor">
-  <div class="container">
-    <div class="s-eyebrow">Featured Speaker</div>
-    <h2 class="s-title">THE MAYOR OF CHICAGO<br>WILL BE IN THE <span class="blue">ROOM.</span></h2>
-    <div class="mayor-feature">
-      <div>
-        <div class="mayor-pill">Special Address · 7:00 PM</div>
-        <div class="mayor-name">MAYOR BRANDON JOHNSON</div>
-        <div class="mayor-role">Faith, Community and Funding in Chicago</div>
-        <p class="mayor-desc">Mayor Brandon Johnson has a heart for the organizations that are boots on the ground. The faith leaders, the grassroots organizers, the community builders doing the work every single day without the resources they deserve. Mayor Johnson fully supports this work and he has specifically requested that the tools, funding, and resources reach the organizations that need them most. Fundable Chicago exists because of that request. He joins us live at 7:00 PM to speak directly to the leaders in this room, answer their questions, and affirm what this city owes the people doing the hardest work.</p>
-        <div style="background:rgba(201,168,76,0.08);border-left:3px solid var(--gold);padding:16px 20px;margin-bottom:20px;">
-          <p style="font-size:15px;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.75;font-weight:300;">"The organizations closest to the community deserve access to the resources that sustain and grow their work. We are committed to making sure those resources reach the people doing the most important work in our neighborhoods."</p>
-          <p style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:10px;">Mayor Brandon Johnson · City of Chicago</p>
+    <!-- REGISTRATION SECTION -->
+    <section class="register-section" id="registerSection">
+        <div class="container">
+            <div class="register-content">
+                <h2>Get Your Free Access</h2>
+                <p>Register now and we'll send you your personalized funding list, coaching session link, and event details.</p>
+                
+                <form id="registrationForm" onsubmit="handleSubmit(event)">
+                    <div class="success-message" id="successMsg">✓ You're registered! Check your email.</div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orgName">Organization Name</label>
+                        <input type="text" id="orgName" name="orgName" placeholder="Your organization (optional)">
+                    </div>
+                    
+                    <button type="submit" class="form-submit" id="submitBtn">Register Now</button>
+                </form>
+            </div>
         </div>
-        <div class="mayor-meta">
-          <div class="m-item"><span class="m-label">Time</span><span class="m-value">7:00 PM · 30 minutes</span></div>
-          <div class="m-item"><span class="m-label">Format</span><span class="m-value">Conversation moderated with live Q&A from the room</span></div>
-          <div class="m-item"><span class="m-label">Your question</span><span class="m-value">Submitted at registration selected questions read live on stage</span></div>
+    </section>
+
+    <!-- RESULT MODAL -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-icon" id="resultIcon">🎉</div>
+            <h3 id="resultTitle">You Won!</h3>
+            <p id="resultText">VIP Event Access</p>
+            <button class="btn-primary" onclick="closeModal(); document.getElementById('registerSection').scrollIntoView({behavior: 'smooth'})">Claim Your Prize</button>
         </div>
-      </div>
-      <div class="mayor-img"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663420740336/JjRvEB3btFcVyUuif8DTKH/ANZwtEhggQ5F_89afd3d9.png" alt="Mayor Brandon Johnson"></div>
-    </div>
-  </div>
-</section>
-
-<section class="section off" id="program">
-  <div class="container">
-    <div class="s-eyebrow">Evening Program · May 14, 2026</div>
-    <h2 class="s-title">YOU DO NOT JUST<br>ATTEND. YOU LEAVE<br>WITH <span class="gold">SOMETHING.</span></h2>
-    <p class="s-body">4:00 PM to 9:15 PM. Every session is followed by doing. CRA funding explained in plain language. A live AI demo is featured. Mayor Brandon Johnson at 7:00 PM. Three structured networking moments. Closing prayer by Louis Wimbley. You leave with tools running, grants found, and real next steps in hand.</p>
-
-    <div class="prog-list">
-
-      <div class="prog-phase">Arrival <span>4:00 PM</span></div>
-      <div class="prog-item connect">
-        <div class="prog-time">4:00 PM</div>
-        <div class="prog-title">Walk In and Get to Work</div>
-        <div class="prog-desc">Doors open and food is served. Receive your Connection Card at check-in with five structured prompts to meet the people in this room who can help you most. CRA officers and funder representatives are available for direct conversation from the moment you arrive. The DJ is playing. The evening starts the moment you walk in.</div>
-        <div class="prog-tags"><span class="ptag g">Food and Drinks Served</span><span class="ptag a">Connection Card at Check-In</span><span class="ptag b">Funders in the Room from 4:00 PM</span><span class="ptag a">DJ Playing</span></div>
-      </div>
-
-      <div class="prog-phase">Opening <span>5:00 PM</span></div>
-      <div class="prog-item default">
-        <div class="prog-time">5:00 PM</div>
-        <div class="prog-title">Welcome</div>
-        <div class="prog-desc">Community and civic leaders welcome the room and affirm why tonight matters for Chicago's neighborhoods.</div>
-        <div class="prog-tags"><span class="ptag m">Pastor Billy Evans</span><span class="ptag m">Alderman of the Ward</span></div>
-      </div>
-      <div class="prog-item learn">
-        <div class="prog-time">5:15 PM</div>
-        <div class="prog-title">What Is a Fundable Nonprofit and Are You One?</div>
-        <div class="prog-desc">Before the funding sessions begin you need to know what funders actually see when they look at your organization. This session answers that question directly and sets up everything that follows. Come ready to be honest about where you stand and excited about what you can change tonight.</div>
-        <div class="prog-tags"><span class="ptag b">15 Minutes</span><span class="ptag b">Sets the Framework for the Evening</span></div>
-      </div>
-
-      <div class="prog-phase">City, State and Local Funding <span>5:30 PM</span></div>
-      <div class="prog-item learn">
-        <div class="prog-time">5:30 PM</div>
-        <div class="prog-title">The Money the City and State Have for You Right Now</div>
-        <div class="prog-desc">This is not a presentation. The MC facilitates a live Q and A with city and state funding representatives using questions submitted by attendees at registration. Your question about GATA, about why your application was rejected, about which programs you qualify for gets answered directly by the people who run these programs. City of Chicago, State of Illinois, GATA, workforce funding, housing funding, and after school food programs like SFSP and CACFP are all represented. You leave this session with real answers to the questions you came in with.</div>
-        <div class="prog-tags"><span class="ptag g">City of Chicago</span><span class="ptag g">State of Illinois</span><span class="ptag g">GATA</span><span class="ptag g">Workforce</span><span class="ptag g">Housing</span><span class="ptag g">SFSP and CACFP</span><span class="ptag g">Your Questions Answered Directly</span><span class="ptag b">30 Minutes</span></div>
-      </div>
-
-      <div class="prog-phase">CRA Funding <span>6:00 PM</span></div>
-      <div class="prog-item cra">
-        <div class="prog-time">6:00 PM</div>
-        <div class="prog-title">CRA Funding Taught and Explained · Latriana Robinson</div>
-        <div class="prog-desc">Latriana Robinson leads this session and breaks down Community Reinvestment Act funding in plain language. What it is, how banks are required to invest in communities like yours, which organizations and neighborhoods qualify, and exactly how to start a real funding conversation with a CRA officer. Direct Q and A with CRA officers from U.S. Bank and other financial institutions follows. Bring your organization's information. You leave knowing how to access bank funding that most community organizations have never been told exists.</div>
-        <div class="prog-tags"><span class="ptag c">Latriana Robinson</span><span class="ptag m">U.S. Bank</span><span class="ptag g">Direct Q and A</span><span class="ptag b">20 Minutes</span></div>
-      </div>
-
-      <div class="prog-phase">Energy Break <span>6:30 PM</span></div>
-      <div class="prog-item connect">
-        <div class="prog-time">6:30 PM</div>
-        <div class="prog-title">DJ, Giveaways and the Mayor Is Coming</div>
-        <div class="prog-desc">The DJ drops a song. The MC runs a quick prize giveaway. The room gets loud. Then the MC takes the mic and builds the energy toward 7:00 PM. In 30 minutes the Mayor of Chicago walks through that door. If your organization has ever been left out of a funding conversation tonight that changes. Get your question ready.</div>
-        <div class="prog-tags"><span class="ptag a">DJ</span><span class="ptag a">Quick Giveaway</span><span class="ptag a">MC Hype</span><span class="ptag a">15 Minutes</span></div>
-      </div>
-
-      <div class="prog-phase">Mayor Brandon Johnson <span>7:00 PM</span></div>
-      <div class="prog-item mayor">
-        <div class="prog-time">7:00 PM</div>
-        <div class="prog-title">A Conversation with Mayor Brandon Johnson</div>
-        <div class="prog-desc">Mayor Brandon Johnson has a heart for the organizations that are boots on the ground. He fully supports this work and has specifically requested that these resources reach the organizations doing the hardest work in Chicago's neighborhoods. Tonight he speaks directly to you about his administration's commitments and what he is asking of Chicago's community leaders in return. Your question submitted at registration may be read live. Open Q and A follows.</div>
-        <div class="prog-tags"><span class="ptag w">7:00 PM Sharp</span><span class="ptag w">30 Minutes</span><span class="ptag w">Your Question May Be Read Live</span></div>
-      </div>
-
-      <div class="prog-item breakrow">
-        <div class="prog-time">7:30 PM</div>
-        <div class="prog-title">Intermission · 15 Minutes</div>
-        <div class="prog-desc">Take a breath. Use the restroom. Funders and CRA officers are available for direct conversation during this break.</div>
-        <div class="prog-tags"><span class="ptag m">15 Minutes</span><span class="ptag b">Funders Available</span></div>
-      </div>
-
-      <div class="prog-phase">Foundation Funding and AI Demo <span>7:45 PM to 8:30 PM</span></div>
-      <div class="prog-item foundation">
-        <div class="prog-time">7:45 PM</div>
-        <div class="prog-title">Foundation Funding Panel · What Chicago's Foundations Are Looking to Fund</div>
-        <div class="prog-desc">A panel of Chicago foundation representatives share their current funding priorities in plain language. What they are looking for right now, what a strong proposal looks like from their side of the table, and how faith-led and multicultural grassroots organizations can build the relationships that lead to real foundation funding. Direct Q and A throughout. This session is for every organization that has wondered whether they would ever be considered by a foundation. The answer is in this room.</div>
-        <div class="prog-tags"><span class="ptag b">Chicago Foundations Panel</span><span class="ptag b">Multicultural Communities Centered</span><span class="ptag g">Direct Q and A</span><span class="ptag b">20 Minutes</span></div>
-      </div>
-
-      <div class="prog-item do">
-        <div class="prog-time">8:05 PM</div>
-        <div class="prog-title">AI for Nonprofits · Live Demo</div>
-        <div class="prog-desc">A live demonstration built specifically for nonprofits showing you how to use AI tools to find grants, write stronger proposals, navigate funding portals faster, and manage your organization more efficiently. Laptops and phones open. You follow along in real time and leave with tools running on your device before this session ends. No technical background required. You do not just watch this demo. You do it.</div>
-        <div class="prog-tags"><span class="ptag b">AI Live Demo</span><span class="ptag b">20 Minutes</span><span class="ptag g">Tools Running on Your Device Before You Leave</span><span class="ptag g">Open Your Phone or Laptop</span></div>
-      </div>
-
-      <div class="prog-phase">Closing <span>8:25 PM</span></div>
-      <div class="prog-item default">
-        <div class="prog-time">8:25 PM</div>
-        <div class="prog-title">Closing · Dr. Alexis Maston McClinton</div>
-        <div class="prog-desc">Readiness toolkits distributed by youth volunteers. Post-event cohort announced and enrollment opens. Every organization in the room recognized. Your personalized AI funding resource list emailed to you tonight with clickable links and three clear next steps. The work does not end when the doors close.</div>
-        <div class="prog-tags"><span class="ptag g">Toolkit Distributed</span><span class="ptag g">Cohort Enrollment Opens</span><span class="ptag g">AI List Emailed Tonight</span><span class="ptag b">5 Minutes</span></div>
-      </div>
-
-      <div class="prog-item prayer">
-        <div class="prog-time">8:30 PM</div>
-        <div class="prog-title">Closing Prayer · Louis Wimbley</div>
-        <div class="prog-desc">The evening ends through prayer. Louis Wimbley closes the room with intention, gratitude, and a commission over every organization and leader present to go and do the work. Doors close at 8:35 PM.</div>
-        <div class="prog-tags"><span class="ptag w">Louis Wimbley</span><span class="ptag w">Closing Prayer</span><span class="ptag w">5 Minutes</span><span class="ptag w">Doors Close at 8:35 PM</span></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="section white">
-  <div class="container">
-    <div class="s-eyebrow">The Connection Card</div>
-    <h2 class="s-title">MEET FIVE PEOPLE.<br>DO IT WITH <span class="blue">PURPOSE.</span></h2>
-    <p class="s-body">Every attendee receives a Connection Card at check-in. Five specific prompts so you know exactly who to find and what to say. Complete all five during the networking hour and earn your first Fundable Passport points.</p>
-    <div class="connection-card">
-      <h3>Your Connection Card · Five Prompts</h3>
-      <p>Complete each one during the networking hour from 4:00 to 5:00 PM and during the structured connection moments throughout the evening. All five earn points on your Fundable Passport.</p>
-      <div class="cc-prompts">
-        <div class="cc-prompt"><div class="cc-num">1</div><div class="cc-text"><strong>Find a CRA officer or funder representative.</strong> Ask them one question about what they fund right now.</div></div>
-        <div class="cc-prompt"><div class="cc-num">2</div><div class="cc-text"><strong>Find someone who serves a different neighborhood than yours.</strong> Exchange names and org information.</div></div>
-        <div class="cc-prompt"><div class="cc-num">3</div><div class="cc-text"><strong>Find someone whose mission could complement yours.</strong> Could you partner on a grant application together?</div></div>
-        <div class="cc-prompt"><div class="cc-num">4</div><div class="cc-text"><strong>Find someone who has never applied for a grant.</strong> Tell them the one thing they need to know first.</div></div>
-        <div class="cc-prompt"><div class="cc-num">5</div><div class="cc-text"><strong>Find someone from a different cultural or faith community.</strong> Learn what they are working on tonight.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section off">
-  <div class="container">
-    <div class="s-eyebrow">The Fundable Passport</div>
-    <h2 class="s-title">NOT AN EVENT.<br>A WORKING <span class="blue">GAME.</span></h2>
-    <p class="s-body">Every attendee receives a Fundable Passport at check-in. Earn points for real work all evening. The leaderboard runs on screen throughout the night.</p>
-    <div class="game-grid">
-      <div class="passport-card">
-        <div class="passport-bar"><div class="pb-label">Fundable Passport · May 14, 2026</div><div class="pb-org">Your Organization</div><div class="pb-match">Funder Match · U.S. Bank CRA Community Team</div></div>
-        <ul class="pt-list">
-          <li class="pt-item"><div class="pt-box done">✓</div>Complete intake form and Mayor question<span class="pt-pts">10 pts</span></li>
-          <li class="pt-item"><div class="pt-box done">✓</div>Find your funder match<span class="pt-pts">30 pts</span></li>
-          <li class="pt-item"><div class="pt-box done">✓</div>Complete all five Connection Card prompts<span class="pt-pts">25 pts</span></li>
-          <li class="pt-item"><div class="pt-box"></div>Complete GATA registration tonight<span class="pt-pts">25 pts</span></li>
-          <li class="pt-item"><div class="pt-box"></div>Start a grant application<span class="pt-pts">25 pts</span></li>
-          <li class="pt-item"><div class="pt-box"></div>Find two foundation matches and save them<span class="pt-pts">25 pts</span></li>
-          <li class="pt-item"><div class="pt-box"></div>Draft or sign an MOU tonight<span class="pt-pts">50 pts</span></li>
-          <li class="pt-item"><div class="pt-box"></div>Submit your completed Passport before closing<span class="pt-pts">Drawing entry</span></li>
-        </ul>
-      </div>
-      <div class="game-right">
-        <h3>WIN PRIZES FOR REAL WORK.</h3>
-        <p>Points earned for connections made, work completed, and relationships built. Prize drops happen throughout the night. The leaderboard runs continuously on screen.</p>
-        <ul class="prize-list">
-          <li class="prize-item"><div class="prize-rank">1</div><div class="prize-body"><h4>Most Points Overall</h4><p>One-on-one session with Dr. Alexis, featured spotlight on Fundable Chicago channels, and priority cohort enrollment</p></div></li>
-          <li class="prize-item"><div class="prize-rank">2</div><div class="prize-body"><h4>Most Diverse Connections</h4><p>30-minute strategy session with Dr. Alexis and a Fundable Chicago readiness toolkit package</p></div></li>
-          <li class="prize-item"><div class="prize-rank">★</div><div class="prize-body"><h4>Every Completed Passport</h4><p>Entered in the final drawing at closing. Nobody who does the work goes home empty-handed.</p></div></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section white">
-  <div class="container">
-    <div class="s-eyebrow">Leadership and Partners</div>
-    <h2 class="s-title">THE PEOPLE<br>BEHIND THE <span class="blue">ROOM.</span></h2>
-
-    <div class="alexis-feature">
-      <img class="alexis-img" src="https://d2xsxph8kpxj0f.cloudfront.net/310519663420740336/JjRvEB3btFcVyUuif8DTKH/Wccj9AvQU41a_9f29ad07.jpg" alt="Dr. Alexis Maston McClinton">
-      <div>
-        <div class="alexis-name">Dr. Alexis Maston McClinton</div>
-        <div class="alexis-role">Founder and Host · K-Nation Group</div>
-        <div class="alexis-desc">Nationally recognized strategist helping organizations turn vision into scalable impact through faith and entrepreneurship. Dr. Alexis created Fundable Chicago to close the information gap that has kept the same organizations funded while equally deserving communities go unresourced. She leads Fundable Chicago to connect Chicago's faith-led and grassroots organizations with the capital, relationships, and technical assistance they need to grow, sustain, and lead.</div>
-      </div>
     </div>
 
-    <div class="people-grid">
-      <div class="person-card">
-        <img class="person-img" src="https://d2xsxph8kpxj0f.cloudfront.net/310519663420740336/JjRvEB3btFcVyUuif8DTKH/billy_evans_chicago_gov_069d5d3a.jpg" alt="Pastor Billy Evans">
-        <div class="person-name">Pastor Billy Evans</div>
-        <div class="person-role">Chief of Faith Engagement · City of Chicago</div>
-        <p class="person-desc">Championing partnerships between the city and faith leaders to strengthen communities and expand access to capital across Chicago.</p>
-      </div>
-      <div class="person-card">
-        <img class="person-img" src="https://d2xsxph8kpxj0f.cloudfront.net/310519663420740336/JjRvEB3btFcVyUuif8DTKH/ANZwtEhggQ5F_89afd3d9.png" alt="Mayor Brandon Johnson">
-        <div class="person-name">Brandon Johnson</div>
-        <div class="person-role">Mayor of Chicago · Featured Speaker</div>
-        <p class="person-desc">Leading Chicago's commitment to expanding funding access for faith-led and grassroots organizations. Speaking live at 7:00 PM.</p>
-      </div>
-
-    </div>
-
-    <div style="margin-top:56px;padding-top:48px;border-top:1px solid var(--border);">
-      <div class="s-eyebrow" style="margin-bottom:20px;">Sponsors and Partners</div>
-      <div class="sponsor-split">
-        <div class="sponsor-group">
-          <h4>Presented in Partnership With</h4>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div class="sponsor-text">Mayor's Office of Faith Engagement</div>
-            <div class="sponsor-text">K-Nation Group</div>
-          </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>Fundable Chicago 2026 · May 14 · Kennedy-King College<br>
+            In partnership with Mayor's Office of Faith Engagement · Sponsored by U.S. Bank</p>
         </div>
-        <div class="sponsor-group">
-          <h4>Proudly Sponsored By</h4>
-          <div class="sponsor-logos">
-            <img class="sponsor-logo" src="https://d2xsxph8kpxj0f.cloudfront.net/310519663420740336/JjRvEB3btFcVyUuif8DTKH/SS7PpSZA1582_ee275245.png" alt="US Bank" style="max-width: 400px; height: auto;">
-          </div>
-        </div>
-        <div class="sponsor-group">
-          <h4>In Partnership With</h4>
-          <div class="sponsor-logos">
-            <img class="sponsor-logo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663420740336/RgTxNfqzjlzvgpud.png" alt="K-Nation Group" style="max-width: 300px; height: auto;">
-            <img class="sponsor-logo" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663420740336/LvsueSNDxPOocyyI.JPG" alt="Mayor's Office of Faith Engagement" style="max-width: 320px; height: auto;">
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:20px;"><a href="/cdn-cgi/l/email-protection#1677727b7f78567d7877627f7978716479636638796471" style="font-size:13px;color:var(--blue-mid);font-weight:500;">Interested in sponsoring Fundable Chicago? Contact us</a></div>
-    </div>
-  </div>
-</section>
-
-<div class="cta">
-  <h2>CHICAGO.<br>THERE IS MONEY FOR<br>YOUR <span class="gold">ORGANIZATION.</span></h2>
-  <p>Let us show you how to get it. Free Access. May 14, 2026. Kennedy-King College. You do not just attend. You leave with something real.</p>
-  <button class="btn-gold" id="cta-register-btn">Reserve Your Free Access Seat</button>
-</div>
-
-<!-- REGISTRATION POP-UP MODAL -->
-<div id="popup-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
-  <div style="background:var(--navy);border-radius:16px;padding:40px 32px;max-width:480px;width:calc(100vw - 32px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);position:relative;">
-    <button onclick="document.getElementById('popup-modal').style.display='none';" style="position:absolute;top:16px;right:16px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer;opacity:0.6;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">×</button>
-    <div style="font-size:48px;margin-bottom:16px;">📋</div>
-    <h3 style="font-family:var(--display);font-size:24px;color:var(--white);margin-bottom:12px;letter-spacing:0.02em;">Register for Your Free Access Funding List</h3>
-    <p style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;margin-bottom:28px;">Get a personalized list of grants, foundations, and funding sources tailored to your organization. Plus expert coaching and direct access to funders.</p>
-    <button onclick="document.getElementById('popup-modal').style.display='none';document.getElementById('register').scrollIntoView({behavior:'smooth'});" style="background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:14px 32px;font-family:var(--body);font-weight:700;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;width:100%;transition:all 0.2s;" onmouseover="this.style.background='var(--gold-light);this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--gold);this.style.transform='translateY(0)'">Get Your Free Access List</button>
-  </div>
-</div>
-
-<script>
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      document.getElementById('popup-modal').style.display = 'flex';
-    }, 2000);
-  });
-  setInterval(function() {
-    if (document.getElementById('popup-modal').style.display !== 'flex') {
-      document.getElementById('popup-modal').style.display = 'flex';
-    }
-  }, 60000);
-</script>
-
-<section class="reg-section" id="register">
-  <div class="container">
-    <div class="s-eyebrow light">Reserve Your Seat</div>
-    <h2 class="s-title white">GET MY SEAT<br>IN THE <span class="gold">ROOM.</span></h2>
-    <div class="reg-grid">
-      <div>
-        <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.8;font-weight:300;margin-bottom:36px;">May 14, 2026. Kennedy-King College, Chicago. Free Access. Limited seats. Come as you are. Leave equipped, connected, and moving.</p>
-        <div class="why-list">
-          <div class="why-item"><div class="why-dot"></div><p>Your personalized AI funding resource list generated from your registration and emailed before May 14 with clickable links to every relevant portal</p></div>
-          <div class="why-item"><div class="why-dot"></div><p>Free Access 30-minute expert coaching session in the morning lab book your slot immediately after registering</p></div>
-          <div class="why-item"><div class="why-dot"></div><p>Your question for Mayor Brandon Johnson submitted at registration selected questions read live at 7:00 PM</p></div>
-          <div class="why-item"><div class="why-dot"></div><p>Direct access to CRA officers, Chicago foundations, and city officials in one room on one evening</p></div>
-          <div class="why-item"><div class="why-dot"></div><p>Two AI working sessions where you apply for funding in real time before you leave the building</p></div>
-          <div class="why-item"><div class="why-dot"></div><p>Three structured networking moments so you leave with real relationships not just business cards</p></div>
-          <div class="why-item"><div class="why-dot"></div><p>Closing prayer by Louis Wimbley the evening closes as a faith-led convening should</p></div>
-        </div>
-        <div class="coaching-note">
-          <h4>Also book your morning coaching session</h4>
-          <p>After registering you will receive a Calendly link to book your free 30-minute appointment with one of eight expert consultants available from 10:00 AM to 3:30 PM. Slots are limited and fill before the event.</p>
-          <button class="btn-gold" style="font-size:12px;padding:11px 22px;" id="coaching-register-btn">Register to Book Your Session</button>
-        </div>
-      </div>
-      <div class="form-box">
-        <form id="registration-form" data-register="true">
-        <div class="form-title">GET MY<br>FREE SEAT</div>
-        <div class="form-sub">Free Access · No cost · No catch · Limited seats</div>
-        <div class="form-sec">Your Information</div>
-        <div class="form-row">
-          <div class="fg"><label class="fl">First Name</label><input class="fi" type="text" name="firstName" placeholder="First name" required></div>
-          <div class="fg"><label class="fl">Last Name</label><input class="fi" type="text" name="lastName" placeholder="Last name" required></div>
-        </div>
-        <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" name="email" placeholder="your@email.com" required></div>
-        <div class="form-sec">Your Organization</div>
-        <div class="fg"><label class="fl">Organization Name</label><input class="fi" type="text" name="organizationName" placeholder="Name of your organization"></div>
-        <button type="submit" class="form-submit" id="reg-btn">Get My Seat Now</button>
-        <div class="form-note">Presented with the Mayor's Office of Faith Engagement · Sponsored by U.S. Bank<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3756535a5e59775c5956435e5859504558424719584550">[email&#160;protected]</a> · Kennedy-King College, Chicago, IL</div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">FUNDABLE <span>CHICAGO</span></div>
-        <p class="footer-tagline">A free capacity building lab and funding convening connecting Chicago's faith-led and grassroots organizations to the capital, information, and relationships they deserve. The information is the access. No more gatekeeping.</p>
-        <p style="font-size:12px;color:rgba(255,255,255,0.25);">In partnership with the Mayor's Office of Faith Engagement and K-Nation Group · Sponsored by U.S. Bank</p>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#day">The Full Day</a></li>
-          <li><a href="#program">Evening Program</a></li>
-          <li><a href="#who">Who It's For</a></li>
-          <li><a href="#register">Register Free Access</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="/cdn-cgi/l/email-protection#e081848d898ea08b8e8194898f8e87928f9590ce8f9287"><span class="__cf_email__" data-cfemail="2e4f4a4347406e45404f5a474140495c415b5e00415c49">[email&#160;protected]</span></a></li>
-          <li><a href="tel:3130986313">Monica McDowell · (313) 098-6313</a></li>
-          <li><a href="#">Kennedy-King College, Chicago, IL</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#5637323b3f38163d3837223f3938312439232678392431">Become a Sponsor</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#0a6b6e6763644a61646b7e6365646d78657f7a2465786d">Volunteer</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Fundable Chicago · K-Nation Group · All rights reserved</span>
-      <span class="footer-copy">May 14, 2026 · Kennedy-King College · Chicago, Illinois · Free Access</span>
-    </div>
-  </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></s< cache bust 1775440070 -->
-
-<!-- Persistent Registration Pop-up -->
-<div id="registration-popup" class="registration-popup">
-  <div class="popup-content">
-    <button id="popup-close" class="popup-close" type="button">×</button>
-    <div class="popup-icon">📋</div>
-    <h3>Register for Your Free Access Funding List</h3>
-    <p>Get a personalized list of grants, foundations, and funding sources tailored to your organization.</p>
-    <button id="popup-register-btn" class="popup-btn" type="button">Get Your Free Access List</button>
-  </div>
-</div>
-
-<!-- Live Funding Coach Chat Widget -->
-<div id="chat-widget" class="chat-widget">
-  <div class="chat-header">
-    <div class="chat-title">
-      <span class="chat-icon">💬</span>
-      <span>Live Funding Coach</span>
-    </div>
-    <button id="chat-close" class="chat-close">×</button>
-  </div>
-  <div id="chat-messages" class="chat-messages">
-    <div class="chat-message bot">
-      <p>Hi! 👋 I'm your Live Funding Coach. I specialize in helping grassroots and faith-led nonprofits under $100K find funding. What questions do you have about grants, funding opportunities, or Fundable Chicago?</p>
-    </div>
-  </div>
-  <div class="chat-input-area">
-    <input id="chat-input" type="text" placeholder="Ask me about funding..." />
-    <button id="chat-send">Send</button>
-  </div>
-</div>
-
-<!-- Chat Toggle Button -->
-<button id="chat-toggle" class="chat-toggle">
-  <span>💬</span>
-  <span>Live Funding Coach</span>
-</button>
-
-<style>
-/* Chat Widget Styles */
-.chat-toggle {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-  color: var(--navy);
-  border: none;
-  border-radius: 50px;
-  padding: 14px 20px;
-  font-family: var(--body);
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 300;
-  transition: all 0.3s ease;
-}
-
-.chat-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(201, 168, 76, 0.4);
-}
-
-.chat-toggle.hidden {
-  display: none;
-}
-
-.chat-widget {
-  position: fixed;
-  bottom: 100px;
-  right: 24px;
-  width: 380px;
-  max-width: calc(100vw - 32px);
-  height: 500px;
-  background: var(--white);
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(10, 22, 40, 0.2);
-  display: none;
-  flex-direction: column;
-  z-index: 300;
-  animation: slideUp 0.3s ease;
-}
-
-.chat-widget.active {
-  display: flex;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.chat-header {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-  color: var(--white);
-  padding: 16px 20px;
-  border-radius: 12px 12px 0 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 3px solid var(--gold);
-}
-
-.chat-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-}
-
-.chat-icon {
-  font-size: 18px;
-}
-
-.chat-close {
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 24px;
-  cursor: pointer;
-  padding: 0;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chat-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.chat-message {
-  display: flex;
-  margin-bottom: 8px;
-}
-
-.chat-message.bot {
-  justify-content: flex-start;
-}
-
-.chat-message.user {
-  justify-content: flex-end;
-}
-
-.chat-message p {
-  max-width: 80%;
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 14px;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.chat-message.bot p {
-  background: var(--blue-pale);
-  color: var(--navy);
-  border-bottom-left-radius: 4px;
-}
-
-.chat-message.user p {
-  background: var(--gold);
-  color: var(--navy);
-  border-bottom-right-radius: 4px;
-}
-
-.chat-input-area {
-  display: flex;
-  gap: 8px;
-  padding: 12px;
-  border-top: 1px solid var(--border);
-  background: var(--off);
-  border-radius: 0 0 12px 12px;
-}
-
-#chat-input {
-  flex: 1;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 10px 12px;
-  font-family: var(--body);
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-#chat-input:focus {
-  border-color: var(--gold);
-}
-
-#chat-send {
-  background: var(--gold);
-  color: var(--navy);
-  border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
-  font-family: var(--body);
-  font-weight: 600;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-#chat-send:hover {
-  background: var(--gold-light);
-}
-
-/* Registration Pop-up Styles */
-.registration-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  background: var(--navy);
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  z-index: 400;
-  display: none;
-  opacity: 0;
-  transition: all 0.3s ease;
-  max-width: 420px;
-  width: calc(100vw - 32px);
-}
-
-.registration-popup.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.popup-content {
-  padding: 32px 28px;
-  text-align: center;
-  position: relative;
-  width: 100%;
-}
-
-.popup-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 28px;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.2s;
-}
-
-.popup-close:hover {
-  opacity: 1;
-}
-
-.popup-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.popup-content h3 {
-  font-family: var(--display);
-  font-size: 24px;
-  color: var(--white);
-  margin-bottom: 12px;
-  letter-spacing: 0.02em;
-}
-
-.popup-content p {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.popup-btn {
-  background: var(--gold);
-  color: var(--navy);
-  border: none;
-  border-radius: 8px;
-  padding: 14px 32px;
-  font-family: var(--body);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s;
-  width: 100%;
-}
-
-.popup-btn:hover {
-  background: var(--gold-light);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(201, 168, 76, 0.3);
-}
-
-@media (max-width: 640px) {
-  .registration-popup {
-    max-width: calc(100vw - 24px);
-  }
-  
-  .popup-content {
-    padding: 24px 20px;
-  }
-  
-  .popup-content h3 {
-    font-size: 20px;
-  }
-  
-  .popup-content p {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 768px) {
-  .chat-widget {
-    width: calc(100vw - 24px);
-    height: 450px;
-    bottom: 90px;
-    right: 12px;
-  }
-  
-  .chat-toggle {
-    bottom: 20px;
-    right: 12px;
-    padding: 12px 16px;
-    font-size: 13px;
-  }
-  
-  .chat-message p {
-    max-width: 85%;
-    font-size: 13px;
-  }
-  
-  #chat-input {
-    font-size: 13px;
-  }
-}
-
-/* Spin wheel animation */
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@media (max-width: 480px) {
-  .chat-widget {
-    width: calc(100vw - 16px);
-    height: 400px;
-    bottom: 80px;
-    right: 8px;
-    border-radius: 8px;
-  }
-  
-  .chat-toggle {
-    bottom: 16px;
-    right: 8px;
-    padding: 10px 14px;
-    font-size: 12px;
-  }
-  
-  .chat-header {
-    padding: 12px 16px;
-  }
-  
-  .chat-messages {
-    padding: 12px;
-  }
-  
-  .chat-message p {
-    max-width: 90%;
-    font-size: 12px;
-    padding: 10px 12px;
-  }
-  
-  #chat-input {
-    font-size: 12px;
-    padding: 8px 10px;
-  }
-  
-  #chat-send {
-    padding: 8px 12px;
-    font-size: 11px;
-  }
-}
-</style>
-
-<script>
-// Chat Widget Functionality
-const chatToggle = document.getElementById('chat-toggle');
-const chatWidget = document.getElementById('chat-widget');
-const chatClose = document.getElementById('chat-close');
-const chatInput = document.getElementById('chat-input');
-const chatSend = document.getElementById('chat-send');
-const chatMessages = document.getElementById('chat-messages');
-
-const BACKEND_URL = 'https://b2s39nrl.up.railway.app';
-let userId = localStorage.getItem('fundable_user_id') || `user_${Date.now()}`;
-
-// Toggle chat widget
-chatToggle.addEventListener('click', () => {
-  chatWidget.classList.add('active');
-  chatToggle.classList.add('hidden');
-  chatInput.focus();
-});
-
-chatClose.addEventListener('click', () => {
-  chatWidget.classList.remove('active');
-  chatToggle.classList.remove('hidden');
-});
-
-// Send message
-async function sendMessage() {
-  const message = chatInput.value.trim();
-  if (!message) return;
-
-  // Add user message to UI
-  const userMsgDiv = document.createElement('div');
-  userMsgDiv.className = 'chat-message user';
-  userMsgDiv.innerHTML = `<p>${escapeHtml(message)}</p>`;
-  chatMessages.appendChild(userMsgDiv);
-  chatInput.value = '';
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-
-  try {
-    // Send to backend
-    const response = await fetch(`${BACKEND_URL}/api/chat`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message, userId }),
-    });
-
-    const data = await response.json();
-    
-    // Add bot response
-    const botMsgDiv = document.createElement('div');
-    botMsgDiv.className = 'chat-message bot';
-    botMsgDiv.innerHTML = `<p>${escapeHtml(data.reply)}</p>`;
-    chatMessages.appendChild(botMsgDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  } catch (error) {
-    console.error('Chat error:', error);
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'chat-message bot';
-    errorDiv.innerHTML = `<p>Sorry, I'm having trouble connecting. Please try again.</p>`;
-    chatMessages.appendChild(errorDiv);
-  }
-}
-
-chatSend.addEventListener('click', sendMessage);
-chatInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') sendMessage();
-});
-
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
-
-// Save user ID
-localStorage.setItem('fundable_user_id', userId);
-
-// Registration Pop-up Logic
-const registrationPopup = document.getElementById('registration-popup');
-const popupClose = document.getElementById('popup-close');
-const popupRegisterBtn = document.getElementById('popup-register-btn');
-const registrationForm = document.querySelector('form[data-register]') || document.querySelector('form');
-
-// Show pop-up on page load - DISABLED to allow wheel interaction
-// Users can click buttons to open the popup
-// window.addEventListener('load', () => {
-//   setTimeout(() => {
-//     registrationPopup.classList.add('active');
-//   }, 2000); // Show after 2 seconds
-// });
-
-// Close pop-up
-popupClose.addEventListener('click', () => {
-  registrationPopup.classList.remove('active');
-});
-
-// Re-show pop-up every 45 seconds - DISABLED
-// setInterval(() => {
-//   if (!registrationPopup.classList.contains('active')) {
-//     registrationPopup.classList.add('active');
-//   }
-// }, 45000);
-
-// Scroll to registration form
-popupRegisterBtn.addEventListener('click', () => {
-  registrationPopup.classList.remove('active');
-  if (registrationForm) {
-    registrationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // Focus first input
-    const firstInput = registrationForm.querySelector('input');
-    if (firstInput) firstInput.focus();
-  }
-});
-</script>
-
-<!-- Registration Form Enhancement -->
-<script>
-// Update registration form to connect to backend
-const registrationForm = document.querySelector('form[data-register]') || document.querySelector('form');
-
-if (registrationForm) {
-  registrationForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(registrationForm);
-    const data = {
-      firstName: formData.get('firstName') || formData.get('first_name'),
-      lastName: formData.get('lastName') || formData.get('last_name'),
-      email: formData.get('email'),
-      organizationName: formData.get('organizationName') || formData.get('organization'),
-      organizationType: formData.get('organizationType') || 'nonprofit',
-      missionDescription: formData.get('missionDescription') || formData.get('mission'),
-      city: formData.get('city'),
-      zip: formData.get('zip'),
-      neighborhoodServed: formData.get('neighborhoodServed') || formData.get('neighborhood'),
-      coachingPreference: formData.get('coachingPreference') || 'General',
-      questionForMayor: formData.get('questionForMayor') || '',
-      budgetSize: formData.get('budgetSize') || 'Under $100K',
-    };
-
-    try {
-      const response = await fetch(`${BACKEND_URL}/api/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        // Save user ID and show success
-        localStorage.setItem('fundable_user_id', result.userId);
-        userId = result.userId;
-
-        // Show success message
-        alert(`✅ Registration successful!\n\nYou've earned ${result.points} points and the "${result.badges[0]}" badge!\n\nCheck your email for your personalized funding list.`);
-
-        // Reset form
-        registrationForm.reset();
-
-        // Optionally redirect or show badge
-        setTimeout(() => {
-          window.location.href = `/badge/${data.email}`;
-        }, 2000);
-      } else {
-        alert(`❌ ${result.message}`);
-      }
-    } catch (error) {
-      console.error('Registration error:', error);
-      alert('Registration failed. Please try again.');
-    }
-  });
-}
-</script>
-
-<!-- Spin wheel functionality loaded from external file -->
-<script src="spin-wheel.js"></script>
-<!-- Simplified registration form -->
-<script src="simple-registration.js"></script>
-
-<!-- Button event handlers -->
-<script src="button-handlers.js"></script>
-
-<!-- Funding Tools Pop-up (shows after registration) -->
-<div id="funding-tools-popup" class="popup">
-  <div class="popup-content funding-popup">
-    <button class="popup-close" onclick="document.getElementById('funding-tools-popup').classList.remove('active')">×</button>
-    <div class="funding-header">
-      <h2>Your Personalized Funding List</h2>
-      <p>Based on your organization's needs and mission</p>
-    </div>
-    <div class="funding-tools">
-      <div class="tool-card">
-        <div class="tool-icon">💰</div>
-        <h3>Available Grants</h3>
-        <p>Federal, state, and local grants matching your organization type</p>
-        <ul class="grant-list">
-          <li>Community Development Block Grants (CDBG)</li>
-          <li>Illinois Community Development Assistance Program</li>
-          <li>Chicago Department of Family & Support Services Grants</li>
-          <li>Local Initiatives Support Corporation (LISC)</li>
-          <li>Nonprofit Finance Fund</li>
-        </ul>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🏦</div>
-        <h3>Funding Sources</h3>
-        <p>Foundations and organizations funding Chicago nonprofits</p>
-        <ul class="source-list">
-          <li>Chicago Community Trust</li>
-          <li>MacArthur Foundation</li>
-          <li>Joyce Foundation</li>
-          <li>Wintrust Financial Foundation</li>
-          <li>Polk Bros Foundation</li>
-        </ul>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🤖</div>
-        <h3>AI-Powered Search</h3>
-        <p>Find grants using artificial intelligence</p>
-        <input type="text" placeholder="Search for grants..." class="search-input">
-        <button class="btn-gold" style="margin-top: 10px; width: 100%;">Search Grants</button>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">📋</div>
-        <h3>Application Resources</h3>
-        <p>Templates and guides for grant applications</p>
-        <ul class="resource-list">
-          <li><a href="#">Grant Writing Template</a></li>
-          <li><a href="#">Budget Narrative Guide</a></li>
-          <li><a href="#">LOI (Letter of Intent) Sample</a></li>
-          <li><a href="#">Impact Measurement Guide</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="funding-footer">
-      <p>💡 Tip: Bookmark this page and check back regularly for new funding opportunities!</p>
-      <button class="btn-gold" onclick="downloadFundingList()">Download My List as PDF</button>
-    </div>
-  </div>
-</div>
-
-
-<script>
-// Show funding tools popup after successful registration
-function showFundingTools() {
-  document.getElementById('registration-popup').classList.remove('active');
-  document.getElementById('funding-tools-popup').classList.add('active');
-}
-
-// Download funding list as PDF
-function downloadFundingList() {
-  alert('PDF download feature coming soon! For now, take a screenshot or bookmark this page.');
-}
-
-// Modify registration form submission to show funding tools
-const originalFormHandler = document.querySelector('form')?.onsubmit;
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      // After successful registration, show funding tools
-      setTimeout(() => {
-        showFundingTools();
-      }, 1500);
-    });
-  }
-});
-</script>
+    </footer>
+
+    <script>
+        const prizes = [
+            { title: 'VIP Event Access', emoji: '👑', text: 'Get premium seating and networking' },
+            { title: 'Free Coaching Session', emoji: '🎓', text: '30-minute expert consultation' },
+            { title: 'Funding List', emoji: '📋', text: 'Personalized grants & opportunities' },
+            { title: 'AI Tools Access', emoji: '🤖', text: 'Grant writing & research tools' },
+            { title: 'Bonus Points', emoji: '⭐', text: 'Extra entries in final drawing' },
+            { title: 'Spin Again', emoji: '🎡', text: 'Get another spin!' },
+            { title: 'Micro Grant', emoji: '💰', text: '$500 toward your organization' },
+            { title: 'Extra Entry', emoji: '🎟️', text: 'Entry in grand prize drawing' }
+        ];
+
+        let isSpinning = false;
+
+        function spinWheel() {
+            if (isSpinning) return;
+            
+            isSpinning = true;
+            const spinBtn = document.getElementById('spinBtn');
+            spinBtn.disabled = true;
+            spinBtn.textContent = '⏳ Spinning...';
+            
+            const wheel = document.getElementById('wheel');
+            const randomSpin = Math.floor(Math.random() * 8);
+            const rotation = randomSpin * 45 + 360 * 5;
+            
+            wheel.style.transition = 'transform 4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            wheel.style.transform = `rotate(${rotation}deg)`;
+            
+            // Play sound
+            playSpinSound();
+            
+            setTimeout(() => {
+                showResult(randomSpin);
+                spinBtn.disabled = false;
+                spinBtn.textContent = '🎡 SPIN AGAIN';
+                isSpinning = false;
+            }, 4000);
+        }
+
+        function showResult(index) {
+            const prize = prizes[index];
+            document.getElementById('resultIcon').textContent = prize.emoji;
+            document.getElementById('resultTitle').textContent = `You Won: ${prize.title}!`;
+            document.getElementById('resultText').textContent = prize.text;
+            document.getElementById('resultModal').classList.add('show');
+            
+            // Play win sound
+            playWinSound();
+            
+            // Show confetti
+            createConfetti();
+        }
+
+        function closeModal() {
+            document.getElementById('resultModal').classList.remove('show');
+        }
+
+        function playSpinSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(200, audioContext.currentTime + 0.1);
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.1);
+            } catch(e) {
+                console.log('Audio not available');
+            }
+        }
+
+        function playWinSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const notes = [523.25, 659.25, 783.99];
+                
+                notes.forEach((freq, i) => {
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(freq, audioContext.currentTime);
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime + i * 0.1);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + i * 0.1 + 0.2);
+                    
+                    oscillator.start(audioContext.currentTime + i * 0.1);
+                    oscillator.stop(audioContext.currentTime + i * 0.1 + 0.2);
+                });
+            } catch(e) {
+                console.log('Audio not available');
+            }
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.textContent = '🎉';
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-20px';
+                confetti.style.fontSize = '24px';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '999';
+                document.body.appendChild(confetti);
+                
+                const duration = 2 + Math.random() * 1;
+                const distance = 200 + Math.random() * 200;
+                
+                confetti.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${distance}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+                
+                setTimeout(() => confetti.remove(), duration * 1000);
+            }
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('registrationForm');
+            const successMsg = document.getElementById('successMsg');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Registering...';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                successMsg.classList.add('show');
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Register Now';
+                
+                setTimeout(() => {
+                    successMsg.classList.remove('show');
+                }, 3000);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
